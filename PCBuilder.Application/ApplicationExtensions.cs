@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using PCBuilder.Application.Interfaces.Auth;
+using PCBuilder.Application.Interfaces.Mail;
 using PCBuilder.Application.Services;
 
 namespace PCBuilder.Application;

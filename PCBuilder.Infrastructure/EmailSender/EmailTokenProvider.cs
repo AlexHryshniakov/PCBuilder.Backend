@@ -3,6 +3,7 @@ using System.Text;
 using System.Text.Json;
 using Microsoft.Extensions.Options;
 using PCBuilder.Application.Interfaces.Auth;
+using PCBuilder.Application.Interfaces.Mail;
 
 namespace PCBuilder.Infrastructure.EmailSender;
 

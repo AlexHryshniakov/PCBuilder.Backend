@@ -2,6 +2,7 @@ using System.Net;
 using System.Net.Mail;
 using Microsoft.Extensions.Options;
 using PCBuilder.Application.Interfaces.Auth;
+using PCBuilder.Application.Interfaces.Mail;
 using PCBuilder.Infrastructure.Authentication;
 
 namespace PCBuilder.Infrastructure.EmailSender;

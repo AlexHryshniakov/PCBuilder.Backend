@@ -1,4 +1,4 @@
-namespace PCBuilder.Application.Interfaces.Auth;
+namespace PCBuilder.Application.Interfaces.Mail;
 
 public interface IEmailSender
 {

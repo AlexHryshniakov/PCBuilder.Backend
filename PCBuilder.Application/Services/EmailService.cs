@@ -1,4 +1,5 @@
 using PCBuilder.Application.Interfaces.Auth;
+using PCBuilder.Application.Interfaces.Mail;
 
 namespace PCBuilder.Application.Services;
 

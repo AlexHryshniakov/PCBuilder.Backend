@@ -1,5 +1,7 @@
 using MediatR;
 using PCBuilder.Application.Interfaces.Auth;
+using PCBuilder.Application.Interfaces.Mail;
+using PCBuilder.Application.Interfaces.Repositories;
 
 namespace PCBuilder.Application.Services.UserService.Command.ConfirmEmail;
 

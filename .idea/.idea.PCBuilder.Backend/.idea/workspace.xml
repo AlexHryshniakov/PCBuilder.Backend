@@ -10,22 +10,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="760ddfa7-2f56-4dc2-8b65-853b4e635d6a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/LoginUser/LoginUserCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/LoginUser/LoginUserCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Mappings/DataBaseMappings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.WebApi/Contracts/Users/LoginUserRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.WebApi/Endpoints/ComputerEndpoints.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.WebApi/Extensions/ApiExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Auth/IPermissionService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/PermissionService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/Authentication/CustomClaims.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/Authentication/PermissionAuthorizationHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/Authentication/PermissionRequirement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PCBuilder.Backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PCBuilder.Backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/Common/Mapping/IMapWith.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/Common/Mapping/IMapWith.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Backend.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Backend.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Infrastructure/Authentication/PasswordHasher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/Authentication/PasswordHasher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Infrastructure/EmailSender/SmtpOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/EmailSender/SmtpOptions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Entities/UserEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Entities/UserEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/ApplicationExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/ApplicationExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Auth/IEmailSender.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Mail/IEmailSender.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Auth/IEmailService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Mail/IEmailService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Auth/IEmailTokenProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Mail/IEmailTokenProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Auth/IUsersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Repositories/IUsersRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/Services/EmailService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/EmailService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/ConfirmEmail/ConfirmEmailCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/ConfirmEmail/ConfirmEmailCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/CreateUser/CreateUserCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/CreateUser/CreateUserCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/LoginUser/LoginUserCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/LoginUser/LoginUserCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Infrastructure/Authentication/JwtProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/Authentication/JwtProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Infrastructure/EmailSender/EmailTokenProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/EmailSender/EmailTokenProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Infrastructure/EmailSender/SmtpEmailSender.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/EmailSender/SmtpEmailSender.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Infrastructure/InfrastructureExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/InfrastructureExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Migrations/20250918203511_Initial.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Migrations/20250918203511_Initial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Migrations/20250918204241_TestMigration.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Migrations/20250918204241_TestMigration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Migrations/20250919104317_EmailUnique.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Migrations/20250919104317_EmailUnique.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Migrations/PcBuilderDbContextModelSnapshot.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/PersistenceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/PersistenceExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Repositories/UsersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Repositories/UsersRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.WebApi/Endpoints/UsersEndpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.WebApi/Endpoints/UsersEndpoints.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.WebApi/Endpoints/ComputerEndpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.WebApi/Endpoints/ComputerEndpoints.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.WebApi/Extensions/ApiExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.WebApi/Extensions/ApiExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PCBuilder.WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.WebApi/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.WebApi/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.WebApi/appsettings.Development.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +181,7 @@
       <workItem from="1758095873584" duration="3340000" />
       <workItem from="1758117208370" duration="7202000" />
       <workItem from="1758174151849" duration="19601000" />
-      <workItem from="1758571988463" duration="18276000" />
+      <workItem from="1758571988463" duration="24975000" />
     </task>
     <task id="LOCAL-00001" summary="add : Api for Register, Migration">
       <option name="closed" value="true" />
@@ -183,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758609198510</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add AddAuthentication with JWT token;   &#10;add Login Api">
+      <option name="closed" value="true" />
+      <created>1758620292097</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1758620292097</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +219,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="add : Api for Register, Migration" />
     <MESSAGE value="Added Confirm Registration by Email" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Confirm Registration by Email" />
+    <MESSAGE value="add AddAuthentication with JWT token;   &#10;add Login Api" />
+    <option name="LAST_COMMIT_MESSAGE" value="add AddAuthentication with JWT token;   &#10;add Login Api" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

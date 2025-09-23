@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using PCBuilder.Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using PCBuilder.Application.Interfaces.Auth;
+using PCBuilder.Application.Interfaces.Repositories;
 using PCBuilder.Persistence.Mappings;
 using PCBuilder.Persistence.Repositories;
 

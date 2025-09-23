@@ -1,7 +1,10 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
+using PCBuidler.Domain.Enums;
+using PCBuilder.Application.Interfaces.Auth;
+using PCBuilder.Application.Services;
 using PCBuilder.Infrastructure.Authentication;
 using PCBuilder.WebApi.Endpoints;
 
@@ -16,11 +19,11 @@ public static class ApiExtensions
     }
 
     public static void AddApiAuthentication(
-        this IServiceCollection service,
+        this IServiceCollection services,
         IConfiguration configuration)
     {
         var jwtOptions = configuration.GetSection(nameof(JwtOptions)).Get<JwtOptions>();
-        service.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
             {
                 options.TokenValidationParameters = new()
@@ -43,6 +46,16 @@ public static class ApiExtensions
                 };
             });
 
-        service.AddAuthorization();
+        services.AddAuthorization();
+        services.AddScoped<IPermissionService, PermissionService>();
+        services.AddSingleton<IAuthorizationHandler, PermissionAuthorizationHandler>();
+    }
+
+    public static IEndpointConventionBuilder RequirePermissions<TBuilder>(
+        this TBuilder builder,params Permission[] permissions)
+    where TBuilder:IEndpointConventionBuilder
+    {
+        return builder.RequireAuthorization(policy=>
+            policy.AddRequirements(new PermissionRequirement(permissions)));
     }
 }

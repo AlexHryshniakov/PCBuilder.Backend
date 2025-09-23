@@ -1,7 +1,7 @@
 using PCBuidler.Domain.Enums;
 using PCBuidler.Domain.Models;
 
-namespace PCBuilder.Application.Interfaces.Auth;
+namespace PCBuilder.Application.Interfaces.Repositories;
 
 public interface IUsersRepository
 {

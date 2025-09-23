@@ -2,7 +2,7 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using PCBuidler.Domain.Enums;
 using PCBuidler.Domain.Models;
-using PCBuilder.Application.Interfaces.Auth;
+using PCBuilder.Application.Interfaces.Repositories;
 using PCBuilder.Persistence.Entities;
 
 namespace PCBuilder.Persistence.Repositories;
@@ -21,7 +21,7 @@ public class UsersRepository:IUsersRepository
     {
         var roleEntity = 
             await _dbContext.Roles
-                .SingleOrDefaultAsync(r => r.Id == (int)Role.User)
+                .SingleOrDefaultAsync(r => r.Id == (int)Role.User, cancellationToken: ct)
             ?? throw new InvalidOperationException();
         
         var userEntity = new UserEntity
@@ -48,9 +48,21 @@ public class UsersRepository:IUsersRepository
         return _mapper.Map<User>(userEntity);
     }
 
-    public async Task<HashSet<Permission>> GetUserPermissions(Guid userId, CancellationToken ct)
+    public async Task<HashSet<Permission>> GetUserPermissions(Guid userId,CancellationToken ct)
     {
-        throw new NotImplementedException();
+        var roles = await _dbContext.Users
+            .AsNoTracking()
+            .Include(u => u.Roles)
+            .ThenInclude(r => r.Permissions)
+            .Where(u => u.Id == userId)
+            .Select(u => u.Roles)
+            .ToArrayAsync(ct);
+
+        return roles
+            .SelectMany(r => r)
+            .SelectMany(r => r.Permissions)
+            .Select(p => (Permission)p.Id)
+            .ToHashSet();
     }
 
     public async Task ConfirmEmail(Guid id, CancellationToken ct)
