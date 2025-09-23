@@ -1,6 +1,10 @@
-﻿namespace PCBuilder.Persistence.Entities;
+﻿using AutoMapper;
+using PCBuidler.Domain.Models;
+using PCBuilder.Application.Common.Mapping;
 
-public class UserEntity
+namespace PCBuilder.Persistence.Entities;
+
+public class UserEntity 
 {
     public Guid Id { get; init; }
     public string UserName { get; init; } = String.Empty;
@@ -10,4 +14,6 @@ public class UserEntity
     public bool EmailConfirmed { get; set; }
     public string AvatarUrl { get; set; } = String.Empty;
     public ICollection<RoleEntity> Roles { get; init; } = [];
+
+   
 }

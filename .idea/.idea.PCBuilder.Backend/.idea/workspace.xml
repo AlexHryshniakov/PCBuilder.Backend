@@ -10,28 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="760ddfa7-2f56-4dc2-8b65-853b4e635d6a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/ApplicationExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Auth/IEmailSender.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Auth/IEmailService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Auth/IEmailTokenProvider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Auth/IJwtProvider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/EmailService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/ConfirmEmail/ConfirmEmailCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/ConfirmEmail/ConfirmEmailCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/Authentication/JwtOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/EmailSender/EmailTokenOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/EmailSender/EmailTokenProvider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/EmailSender/SmtpEmailSender.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/EmailSender/SmtpOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.WebApi/Contracts/Users/ConfirmEmailRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Auth/IUsersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Auth/IUsersRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/CreateUser/CreateUserCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/CreateUser/CreateUserCommandHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Infrastructure/Authentication/JwtProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/Authentication/JwtProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Infrastructure/InfrastructureExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/InfrastructureExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Configurations/UserConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Configurations/UserConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/LoginUser/LoginUserCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/LoginUser/LoginUserCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Mappings/DataBaseMappings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.WebApi/Contracts/Users/LoginUserRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.WebApi/Endpoints/ComputerEndpoints.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.WebApi/Extensions/ApiExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PCBuilder.Backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PCBuilder.Backend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/Common/Mapping/IMapWith.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/Common/Mapping/IMapWith.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Backend.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Backend.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Infrastructure/Authentication/PasswordHasher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/Authentication/PasswordHasher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Infrastructure/EmailSender/SmtpOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/EmailSender/SmtpOptions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Entities/UserEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Entities/UserEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/PersistenceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/PersistenceExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Repositories/UsersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Repositories/UsersRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PCBuilder.WebApi/Endpoints/UsersEndpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.WebApi/Endpoints/UsersEndpoints.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.WebApi/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,12 +39,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ac2a88a1b8c442bf847475a5a257846a5a00/3b/a2418939/BCrypt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/69631bd0381b8641895697ad50fae8ab98c0d7bcb9b5853d444ade50fde337b6/IMediator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/72e5853ed6f2c1967eff9d6f0cf6ba12744c8978c516cbc5e74d992944ab/ArgumentOutOfRangeException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/aef21ab35a6576cdcb99a56e6a8c84076d069f09ad1be52cfedaf49ee667855/Int32.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b05fc3ef644b7632d4481b3defa11634da02637d896cb5eca3eca7cf2f3ee3/String.Manipulation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d791c3eb25297f33ebfc088aa821fe66a8a3a295b63fbd1a1d8f4b2e77e1017/ReadOnlySpan.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e43723b4fae7936a25f765c79c07a114dbb2b7d7fdb38d2723d6c29bdd0dd/Profile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PCBuilder.Infrastructure/InfrastructureExtensions.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
@@ -169,7 +165,7 @@
       <workItem from="1758095873584" duration="3340000" />
       <workItem from="1758117208370" duration="7202000" />
       <workItem from="1758174151849" duration="19601000" />
-      <workItem from="1758571988463" duration="8251000" />
+      <workItem from="1758571988463" duration="18276000" />
     </task>
     <task id="LOCAL-00001" summary="add : Api for Register, Migration">
       <option name="closed" value="true" />
@@ -179,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758262224689</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added Confirm Registration by Email">
+      <option name="closed" value="true" />
+      <created>1758609198510</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1758609198510</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +194,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="add : Api for Register, Migration" />
-    <option name="LAST_COMMIT_MESSAGE" value="add : Api for Register, Migration" />
+    <MESSAGE value="Added Confirm Registration by Email" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Confirm Registration by Email" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

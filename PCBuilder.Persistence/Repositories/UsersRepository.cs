@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using PCBuidler.Domain.Enums;
 using PCBuidler.Domain.Models;
@@ -9,10 +10,13 @@ namespace PCBuilder.Persistence.Repositories;
 public class UsersRepository:IUsersRepository
 {
     private readonly PcBuilderDbContext _dbContext;
+    private readonly IMapper _mapper;
+    public UsersRepository( PcBuilderDbContext dbContext, IMapper mapper)
+    {
+        _dbContext = dbContext;
+        _mapper = mapper;
+    }
 
-    public UsersRepository( PcBuilderDbContext dbContext)
-       => _dbContext = dbContext;
-    
     public async Task Add(User user,CancellationToken ct)
     {
         var roleEntity = 
@@ -36,7 +40,12 @@ public class UsersRepository:IUsersRepository
 
     public async Task<User> GetByEmail(string email,CancellationToken ct)
     {
-        throw new NotImplementedException();
+        var userEntity = await _dbContext.Users
+            .AsNoTracking()
+            .FirstOrDefaultAsync(u => u.Email == email, cancellationToken: ct)
+                         ?? throw new Exception();
+
+        return _mapper.Map<User>(userEntity);
     }
 
     public async Task<HashSet<Permission>> GetUserPermissions(Guid userId, CancellationToken ct)

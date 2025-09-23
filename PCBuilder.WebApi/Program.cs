@@ -1,4 +1,5 @@
 using System.Reflection;
+using Microsoft.AspNetCore.CookiePolicy;
 using PCBuilder.Application;
 using PCBuilder.Application.Common.Mapping;
 using PCBuilder.Application.Interfaces.Auth;
@@ -6,16 +7,23 @@ using PCBuilder.Infrastructure;
 using PCBuilder.Infrastructure.Authentication;
 using PCBuilder.Infrastructure.EmailSender;
 using PCBuilder.Persistence;
-using PCBuilder.WebApi.Endpoints; 
+using PCBuilder.Persistence.Entities;
+using PCBuilder.Persistence.Mappings;
+using PCBuilder.WebApi.Endpoints;
+using PCBuilder.WebApi.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var services = builder.Services;
 var configuration = builder.Configuration;
+       
+services.AddApiAuthentication(configuration);
 
 builder.Services.AddAutoMapper(config =>
 {
     config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
+    config.AddMaps(typeof(DataBaseMappings).Assembly);
+    
 });
 
 builder.Services.AddMediatR(config =>
@@ -23,6 +31,8 @@ builder.Services.AddMediatR(config =>
     config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
     config.RegisterServicesFromAssembly(typeof(IUsersRepository).Assembly);
 });
+services.AddAuthentication();
+services.AddAuthorization();
 
 services.Configure<EmailTokenOptions>(configuration.GetSection(nameof(EmailTokenOptions)));
 services.Configure<SmtpOptions>(configuration.GetSection(nameof(SmtpOptions)));
@@ -43,7 +53,12 @@ builder.Services.AddHttpsRedirection(options => {
 
 var app = builder.Build();
 
-
+app.UseCookiePolicy(new CookiePolicyOptions
+{
+    MinimumSameSitePolicy = SameSiteMode.Strict,
+    HttpOnly = HttpOnlyPolicy.Always,
+    Secure = CookieSecurePolicy.Always
+});
 
 if (app.Environment.IsDevelopment())
 {
@@ -51,6 +66,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapEndpoints(); 
-
+app.AddMappedEndpoints();
+app.UseAuthentication();
+app.UseAuthorization();
 app.Run();

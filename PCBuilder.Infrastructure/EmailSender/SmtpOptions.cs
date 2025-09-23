@@ -1,4 +1,4 @@
-namespace PCBuilder.Infrastructure.Authentication;
+namespace PCBuilder.Infrastructure.EmailSender;
 
 public class SmtpOptions
 {
