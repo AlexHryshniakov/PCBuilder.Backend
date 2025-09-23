@@ -7,7 +7,7 @@ public class UserEntity
     public string Email { get; init; } = String.Empty;
     public string PasswordHash { get; init; } = String.Empty;
     
-    public bool EmailConfirmed { get; init; }
-    public string AvatarUrl { get; init; } = String.Empty;
+    public bool EmailConfirmed { get; set; }
+    public string AvatarUrl { get; set; } = String.Empty;
     public ICollection<RoleEntity> Roles { get; init; } = [];
 }

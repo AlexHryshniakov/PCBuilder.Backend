@@ -43,4 +43,15 @@ public class UsersRepository:IUsersRepository
     {
         throw new NotImplementedException();
     }
+
+    public async Task ConfirmEmail(Guid id, CancellationToken ct)
+    {
+        var user = await _dbContext.Users.Where(u => u.Id == id).FirstOrDefaultAsync(ct);
+        
+        if(user == null)
+            throw new InvalidOperationException("User not found");
+        
+        user.EmailConfirmed = true;
+        await _dbContext.SaveChangesAsync(ct);
+    }
 }
