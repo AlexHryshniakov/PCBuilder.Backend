@@ -14,6 +14,7 @@ public static class InfrastructureExtensions
         services.AddScoped<IJwtProvider, JwtProvider>();
         services.AddScoped<IEmailTokenProvider,EmailTokenProvider>();
         services.AddScoped<IEmailSender,SmtpEmailSender>();
+        services.AddScoped<IRtProvider,RtProvider>();
         return services;
     }
 }

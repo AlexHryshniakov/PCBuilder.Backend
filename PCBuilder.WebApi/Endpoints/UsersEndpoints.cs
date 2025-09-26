@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using PCBuilder.Application.Services.UserService.Command.ConfirmEmail;
 using PCBuilder.Application.Services.UserService.Command.CreateUser;
 using PCBuilder.Application.Services.UserService.Command.LoginUser;
+using PCBuilder.Application.Services.UserService.Command.UpdateTokens;
 using PCBuilder.WebApi.Contracts.Users;
 
 namespace PCBuilder.WebApi.Endpoints;
@@ -18,6 +19,7 @@ public static class UsersEndpoints
         app.MapGet("confirm_email", ConfirmEmail);
         
         app.MapPost("login", Login);
+        app.MapPost("update_token", UpdateToken);
 
         return app;
     }
@@ -55,8 +57,45 @@ public static class UsersEndpoints
         CancellationToken ct)
     {
         var command = mapper.Map<LoginUserCommand>(request);
-        var token = await mediator.Send(command, ct);
-        context.Response.Cookies.Append("secretCookie", token);
+        var tokens = await mediator.Send(command, ct);
+        
+        
+        context.Response.Cookies.Append("secretCookie", tokens.AccessToken);
+        context.Response.Cookies.Append("superSecretCookie", tokens.RefreshToken,new CookieOptions
+        {
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.Strict,
+            Expires = tokens.RtExpiresAt
+        });
+        
+        return Results.Ok();
+    }
+    
+    public static async Task<IResult> UpdateToken(
+        [FromServices]IMediator mediator,
+        [FromServices]IMapper mapper,
+        HttpContext context,
+        CancellationToken ct)
+    {
+        var refreshToken = context.Request.Cookies["superSecretCookie"];
+
+        if (string.IsNullOrEmpty(refreshToken))
+            return Results.Unauthorized(); 
+
+        var command = new UpdateTokensCommand 
+            { RefreshToken = refreshToken };
+        
+        var tokens = await mediator.Send(command, ct);
+        
+        context.Response.Cookies.Append("secretCookie", tokens.AccessToken);
+        context.Response.Cookies.Append("superSecretCookie", tokens.RefreshToken,new CookieOptions
+        {
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.Strict,
+            Expires = tokens.RtExpiresAt
+        });
         
         return Results.Ok();
     }

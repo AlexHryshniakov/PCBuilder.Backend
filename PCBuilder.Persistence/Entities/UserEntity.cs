@@ -14,6 +14,4 @@ public class UserEntity
     public bool EmailConfirmed { get; set; }
     public string AvatarUrl { get; set; } = String.Empty;
     public ICollection<RoleEntity> Roles { get; init; } = [];
-
-   
 }

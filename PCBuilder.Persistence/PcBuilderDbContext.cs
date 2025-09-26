@@ -10,13 +10,15 @@ public class PcBuilderDbContext(
     IOptions<AuthorizationOptions> authOptions):DbContext(options)
 {
     public DbSet<UserEntity> Users { get; set; }
-
+    public DbSet<RefreshTokenEntity> RefreshTokens { get; set; }
     public DbSet<RoleEntity> Roles { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         //   modelBuilder.ApplyConfigurationsFromAssembly(typeof(PcBuilderDbContext).Assembly);
 
+        modelBuilder.ApplyConfiguration(new RefreshTokenConfiguration());
+        
         modelBuilder.ApplyConfiguration(new RolePermissionConfiguration(authOptions.Value));
         modelBuilder.ApplyConfiguration(new PermissionConfiguration());
         modelBuilder.ApplyConfiguration(new RoleConfiguration());
