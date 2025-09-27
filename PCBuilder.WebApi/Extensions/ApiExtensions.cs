@@ -16,6 +16,8 @@ public static class ApiExtensions
     {
         app.MapUsersEndpoints();
         app.MapComputerEndpoints();
+        app.MapEmailEndpoints();
+        app.MapTokenEndpoints();
     }
 
     public static void AddApiAuthentication(

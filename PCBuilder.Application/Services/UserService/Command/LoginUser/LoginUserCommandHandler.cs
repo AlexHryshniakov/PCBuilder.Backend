@@ -11,13 +11,19 @@ public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, Tokens>
     private readonly IPasswordHasher _passwordHasher ;
     private readonly IJwtProvider _jwtProvider ;
     private readonly IRtProvider _rtProvider;
-    public LoginUserCommandHandler(IUsersRepository usersRepository, IPasswordHasher passwordHasher,
-        IJwtProvider jwtProvider, IRtProvider rtProvider)
+    private readonly ITokenRepository _tokenRepository;
+    public LoginUserCommandHandler(
+        IUsersRepository usersRepository,
+        IPasswordHasher passwordHasher,
+        IJwtProvider jwtProvider, 
+        IRtProvider rtProvider,
+        ITokenRepository tokenRepository)
     {
         _usersRepository = usersRepository;
         _passwordHasher = passwordHasher;
         _jwtProvider = jwtProvider;
         _rtProvider = rtProvider;
+        _tokenRepository = tokenRepository;
     }
     
     public async Task<Tokens> Handle(LoginUserCommand request, CancellationToken ct)
@@ -40,7 +46,7 @@ public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, Tokens>
         
         var expiresAt = DateTimeOffset.UtcNow.AddDays(7);
 
-        await _usersRepository.SetRefreshToken(user.Id, refreshToken,expiresAt, ct);
+        await _tokenRepository.SetRefreshToken(user.Id, refreshToken,expiresAt, ct);
         
         return new Tokens(accessToken, refreshToken,expiresAt);
     }

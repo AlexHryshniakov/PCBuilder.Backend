@@ -1,11 +1,8 @@
-using System.Net;
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using PCBuilder.Application.Services.UserService.Command.ConfirmEmail;
 using PCBuilder.Application.Services.UserService.Command.CreateUser;
 using PCBuilder.Application.Services.UserService.Command.LoginUser;
-using PCBuilder.Application.Services.UserService.Command.UpdateTokens;
 using PCBuilder.WebApi.Contracts.Users;
 
 namespace PCBuilder.WebApi.Endpoints;
@@ -15,11 +12,7 @@ public static class UsersEndpoints
     public static IEndpointRouteBuilder MapUsersEndpoints(this IEndpointRouteBuilder app)
     {
         app.MapPost("register", Register);
-
-        app.MapGet("confirm_email", ConfirmEmail);
-        
         app.MapPost("login", Login);
-        app.MapPost("update_token", UpdateToken);
 
         return app;
     }
@@ -34,21 +27,6 @@ public static class UsersEndpoints
         return Results.Ok(id);
     }
 
-    public static async Task<IResult> ConfirmEmail(
-    [FromQuery] string emailToken,
-        [FromServices] IMediator mediator,
-        CancellationToken ct)
-    {
-        var command = new ConfirmEmailCommand
-        {
-            EmailToken = emailToken
-        };
-       await mediator.Send(command, ct);
-        
-        return Results.Ok("Email успешно подтвержден!");
-    }
-
-
     public static async Task<IResult> Login(
         [FromBody] LoginUserRequest request,
         [FromServices]IMediator mediator,
@@ -59,34 +37,6 @@ public static class UsersEndpoints
         var command = mapper.Map<LoginUserCommand>(request);
         var tokens = await mediator.Send(command, ct);
         
-        
-        context.Response.Cookies.Append("secretCookie", tokens.AccessToken);
-        context.Response.Cookies.Append("superSecretCookie", tokens.RefreshToken,new CookieOptions
-        {
-            HttpOnly = true,
-            Secure = true,
-            SameSite = SameSiteMode.Strict,
-            Expires = tokens.RtExpiresAt
-        });
-        
-        return Results.Ok();
-    }
-    
-    public static async Task<IResult> UpdateToken(
-        [FromServices]IMediator mediator,
-        [FromServices]IMapper mapper,
-        HttpContext context,
-        CancellationToken ct)
-    {
-        var refreshToken = context.Request.Cookies["superSecretCookie"];
-
-        if (string.IsNullOrEmpty(refreshToken))
-            return Results.Unauthorized(); 
-
-        var command = new UpdateTokensCommand 
-            { RefreshToken = refreshToken };
-        
-        var tokens = await mediator.Send(command, ct);
         
         context.Response.Cookies.Append("secretCookie", tokens.AccessToken);
         context.Response.Cookies.Append("superSecretCookie", tokens.RefreshToken,new CookieOptions
