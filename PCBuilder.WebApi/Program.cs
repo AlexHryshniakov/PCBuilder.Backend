@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.CookiePolicy;
 using PCBuilder.Application;
 using PCBuilder.Application.Common.Mapping;
 using PCBuilder.Application.Interfaces.Repositories;
+using PCBuilder.Application.Services;
 using PCBuilder.Infrastructure;
 using PCBuilder.Infrastructure.Authentication;
 using PCBuilder.Infrastructure.EmailSender;
@@ -36,7 +37,7 @@ services.Configure<EmailTokenOptions>(configuration.GetSection(nameof(EmailToken
 services.Configure<SmtpOptions>(configuration.GetSection(nameof(SmtpOptions)));
 services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));
 services.Configure<AuthorizationOptions>(configuration.GetSection(nameof(AuthorizationOptions)));
-
+services.Configure<ApiSettings>(configuration.GetSection(nameof(ApiSettings)));
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
 
