@@ -21,6 +21,7 @@ public static class PersistenceExtensions
         });
 
         services.AddScoped<IUsersRepository, UsersRepository>();
+        services.AddScoped<ITokenRepository, TokenRepository>();
         return services;
     }
 }

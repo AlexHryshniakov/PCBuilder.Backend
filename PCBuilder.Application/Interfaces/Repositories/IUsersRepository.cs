@@ -12,8 +12,5 @@ public interface IUsersRepository
     Task ConfirmEmail(Guid id,  CancellationToken cancellationToken);
     
 
-    Task SetRefreshToken(Guid userId, string token,DateTimeOffset expiresAt, CancellationToken cancellationToken);
-    Task UpdateRefreshToken(Guid userId, string token, CancellationToken cancellationToken);
-    Task RevocateRefreshToken(Guid userId, CancellationToken cancellationToken);
-    Task<RefreshToken?> GetUserIdByRt(string token, CancellationToken cancellationToken);
+   
 }

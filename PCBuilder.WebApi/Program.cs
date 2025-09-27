@@ -2,15 +2,12 @@ using System.Reflection;
 using Microsoft.AspNetCore.CookiePolicy;
 using PCBuilder.Application;
 using PCBuilder.Application.Common.Mapping;
-using PCBuilder.Application.Interfaces.Auth;
 using PCBuilder.Application.Interfaces.Repositories;
 using PCBuilder.Infrastructure;
 using PCBuilder.Infrastructure.Authentication;
 using PCBuilder.Infrastructure.EmailSender;
 using PCBuilder.Persistence;
-using PCBuilder.Persistence.Entities;
 using PCBuilder.Persistence.Mappings;
-using PCBuilder.WebApi.Endpoints;
 using PCBuilder.WebApi.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
