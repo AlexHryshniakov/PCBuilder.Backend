@@ -1,5 +1,5 @@
 using MediatR;
-using PCBuidler.Domain;
+using PCBuidler.Domain.Models;
 
 namespace PCBuilder.Application.Services.UserService.Command.UpdateTokens;
 
