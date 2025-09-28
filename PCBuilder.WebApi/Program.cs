@@ -10,6 +10,7 @@ using PCBuilder.Infrastructure.EmailSender;
 using PCBuilder.Persistence;
 using PCBuilder.Persistence.Mappings;
 using PCBuilder.WebApi.Extensions;
+using PCBuilder.WebApi.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -65,6 +66,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCustomExceptionHandler();
 app.AddMappedEndpoints();
 app.UseAuthentication();
 app.UseAuthorization();
