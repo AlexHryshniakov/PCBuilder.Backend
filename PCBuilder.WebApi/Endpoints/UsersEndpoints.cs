@@ -1,9 +1,11 @@
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using PCBuilder.Application.Services.UserService.Command.ChangeAvatar;
 using PCBuilder.Application.Services.UserService.Command.CreateUser;
 using PCBuilder.Application.Services.UserService.Command.LoginUser;
 using PCBuilder.WebApi.Contracts.Users;
+using PCBuilder.WebApi.Extensions;
 
 namespace PCBuilder.WebApi.Endpoints;
 
@@ -11,8 +13,9 @@ public static class UsersEndpoints
 {
     public static IEndpointRouteBuilder MapUsersEndpoints(this IEndpointRouteBuilder app)
     {
-        app.MapPost("register", Register);
-        app.MapPost("login", Login);
+        app.MapPost("user/register", Register);
+        app.MapPost("user/login", Login);
+        app.MapPost("user/{userId:guid}change/avatar", UpdateAvatar).RequireAuthorization().DisableAntiforgery();
 
         return app;
     }
@@ -48,5 +51,25 @@ public static class UsersEndpoints
         });
         
         return Results.Ok();
+    }
+    public static async Task<IResult> UpdateAvatar(
+        [FromRoute]Guid userId,
+        [FromForm]AddUsersAvatarRequest request,
+        [FromServices]IMediator mediator,
+        [FromServices]IMapper mapper,
+        HttpContext context,
+        CancellationToken ct)
+    {
+        
+       var command = new ChangeAvatarCommand
+       {
+           UserId = userId,
+           AvatarStream = request.Avatar.OpenReadStream(),
+           ContentType = request.Avatar.ContentType
+       };
+       
+        string url = await mediator.Send(command, ct);
+        
+        return Results.Ok(url);
     }
 }

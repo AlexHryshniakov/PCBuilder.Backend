@@ -44,7 +44,7 @@ services.Configure<AwsS3Options>(configuration.GetSection("AWS"));
 
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
-
+services.AddAntiforgery();
 services.AddApplication();
 services.AddInfrastructure();
 services.AddPersistence(configuration);
@@ -73,4 +73,6 @@ app.UseCustomExceptionHandler();
 app.AddMappedEndpoints();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseAntiforgery();
+
 app.Run();
