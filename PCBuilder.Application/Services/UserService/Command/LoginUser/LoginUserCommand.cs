@@ -1,5 +1,5 @@
 using MediatR;
-using PCBuidler.Domain.Models;
+using PCBuidler.Domain.Shared;
 
 namespace PCBuilder.Application.Services.UserService.Command.LoginUser;
 
