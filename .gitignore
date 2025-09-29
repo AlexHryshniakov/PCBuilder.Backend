@@ -1,8 +1,24 @@
+# Build Output
 bin/
 obj/
+*.pdb
+
+# Dependencies
 /packages/
+.nupkg
+.tmp
+.cache
+
+# IDE Specific Files
 riderModule.iml
 /_ReSharper.Caches/
-appsettings.Development.json
-# Настройки Rider/ReSharper
-*.DotSettings.user
+*.DotSettings.user  # Локальные настройки ReSharper/Rider
+*.DotSettings       # Общие настройки ReSharper (игнорируем, если не хотим делиться)
+.vs/                # Visual Studio/Rider Temp Files
+*.suo               # Solution User Options
+
+# Configuration & Secrets
+appsettings.Development.json # Чувствительные настройки для разработки
+appsettings.Local.json
+appsettings.Production.json
+appsettings.Staging.json
