@@ -1,8 +1,10 @@
 using Microsoft.Extensions.DependencyInjection;
 using PCBuidler.Domain.Enums;
 using PCBuilder.Application.Interfaces.Auth;
+using PCBuilder.Application.Interfaces.FileStorages;
 using PCBuilder.Application.Interfaces.Mail;
 using PCBuilder.Infrastructure.Authentication;
+using PCBuilder.Infrastructure.BlobStore;
 using PCBuilder.Infrastructure.EmailMessage;
 using PCBuilder.Infrastructure.EmailSender;
 
@@ -28,6 +30,8 @@ public static class InfrastructureExtensions
                             "EmailMessage\\Templates", "ConfirmEmailTemplate.html")),
                     
                 }));
+        
+        services.AddScoped<IPrefixProvider, PrefixProvider>();
         
         return services;
     }

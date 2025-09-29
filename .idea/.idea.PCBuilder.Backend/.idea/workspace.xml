@@ -10,27 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="760ddfa7-2f56-4dc2-8b65-853b4e635d6a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PCBuidler.Domain/Models/RefreshToken.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuidler.Domain/Tokens.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Auth/IRtProvider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/UpdateTokens/UpdateTokensCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/UpdateTokens/UpdateTokensCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/Authentication/RtProvider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Configurations/RefreshTokenConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Entities/RefreshTokenEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuidler.Domain/Shared/PrefixProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/FileStorages/IFileStorage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/FileStorages/IPrefixProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/ChangeAvatar/ChangeAvatarCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/ChangeAvatar/ChangeAvatarCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/BlobStore/PrefixesOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Persistence/FileStorage/AwsS3Options.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Persistence/FileStorage/S3FileStorage.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PCBuilder.Backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PCBuilder.Backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Repositories/IUsersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Repositories/IUsersRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PCBuilder.Application/PCBuilder.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/PCBuilder.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/LoginUser/LoginUserCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/LoginUser/LoginUserCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/LoginUser/LoginUserCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Command/LoginUser/LoginUserCommandHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PCBuilder.Backend.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Backend.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PCBuilder.Infrastructure/InfrastructureExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/InfrastructureExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Entities/UserEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Entities/UserEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Mappings/DataBaseMappings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Mappings/DataBaseMappings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Migrations/PcBuilderDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Migrations/PcBuilderDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/PcBuilderDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/PcBuilderDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Repositories/UsersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Repositories/UsersRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/PCBuilder.Persistence.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/PCBuilder.Persistence.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/PersistenceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/PersistenceExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PCBuilder.WebApi/Endpoints/UsersEndpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.WebApi/Endpoints/UsersEndpoints.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.WebApi/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,17 +38,69 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AlexHryshniakov&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AlexHryshniakov/PCBuilder.Backend.git&quot;,
+    &quot;accountId&quot;: &quot;e372711c-1440-49f3-98de-81e5cb2b7159&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0a054ea25b70470a8b853d983e82321d1a8a0/c0/d3babe0d/IAuthorizationRequirement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6b4c0aadc67e47c69cd4f121731cbac738910/92/43b8f633/HttpStatusCode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ac2a88a1b8c442bf847475a5a257846a5a00/3b/a2418939/BCrypt.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e17a1e5b07d2474b89543e61e223a8df4e8a0/0b/c14933f5/IApplicationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2fe2a2bc3633b22939dcc1bb3384021322674b24cdf72a5cdbd58db46e7cc27/AbstractValidator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/69631bd0381b8641895697ad50fae8ab98c0d7bcb9b5853d444ade50fde337b6/IMediator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/72e5853ed6f2c1967eff9d6f0cf6ba12744c8978c516cbc5e74d992944ab/ArgumentOutOfRangeException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9161da3da671f777cc3652d39696c23db97793e37cb97fcb4e1e87234e56322/ValidationException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/aef21ab35a6576cdcb99a56e6a8c84076d069f09ad1be52cfedaf49ee667855/Int32.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b05fc3ef644b7632d4481b3defa11634da02637d896cb5eca3eca7cf2f3ee3/String.Manipulation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d56d3de37e59803d15fefbde1e1deb7b45cc3a3d8b10fdf5ef9b471b3fc346d/IRequestHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d791c3eb25297f33ebfc088aa821fe66a8a3a295b63fbd1a1d8f4b2e77e1017/ReadOnlySpan.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e43723b4fae7936a25f765c79c07a114dbb2b7d7fdb38d2723d6c29bdd0dd/Profile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f16564c8c4b61e6ea398fe412680c6b795b266584ccf6a362aed712dc4d2b387/WebApplication.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Application/ApplicationExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Application/Common/Exceptions/NotFoundException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Application/Interfaces/Repositories/IUsersRepository.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Application/Services/EmailService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Application/Services/EmailService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Application/Services/EmailService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Application/Services/EmailService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Application/Services/EmailService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Application/Services/PermissionService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Application/Services/UserService/Command/LoginUser/LoginUserCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Application/Services/UserService/Command/LoginUser/LoginUserCommandHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Application/Services/UserService/Command/LoginUser/LoginUserCommandHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Application/Services/UserService/Command/UpdateTokens/UpdateTokensCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Application/Services/UserService/Command/UpdateTokens/UpdateTokensCommandHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Application/Services/UserService/Command/UpdateTokens/UpdateTokensCommandHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Infrastructure/InfrastructureExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Infrastructure/InfrastructureExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Infrastructure/InfrastructureExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PCBuilder.Infrastructure/InfrastructureExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Infrastructure/InfrastructureExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Persistence/PersistenceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.Persistence/Repositories/UsersRepository.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.WebApi/Endpoints/UsersEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.WebApi/Endpoints/UsersEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.WebApi/Endpoints/UsersEndpoints.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.WebApi/Extensions/ApiExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.WebApi/Extensions/ApiExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.WebApi/Extensions/ApiExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.WebApi/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.WebApi/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.WebApi/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.WebApi/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.WebApi/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.WebApi/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://G:/Apps/pc-builder-app/PCBuilder.Backend/PCBuilder.WebApi/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -82,6 +129,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -173,6 +221,8 @@
       <workItem from="1758174151849" duration="19601000" />
       <workItem from="1758571988463" duration="30812000" />
       <workItem from="1758699488819" duration="10925000" />
+      <workItem from="1758885634335" duration="31900000" />
+      <workItem from="1759144563813" duration="5054000" />
     </task>
     <task id="LOCAL-00001" summary="add : Api for Register, Migration">
       <option name="closed" value="true" />
@@ -214,7 +264,87 @@
       <option name="project" value="LOCAL" />
       <updated>1758646178747</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added Refresh token">
+      <option name="closed" value="true" />
+      <created>1758889531180</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1758889531180</updated>
+    </task>
+    <task id="LOCAL-00007" summary="change Access Token's duration from hours to minutes">
+      <option name="closed" value="true" />
+      <created>1758889679784</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1758889679784</updated>
+    </task>
+    <task id="LOCAL-00008" summary="refactor: Restructure token and user logic, and introduce global exceptions&#10;&#10;- refactor(UserRepository): Divide logic to TokenRepository (and update User's Command).&#10;- feat(Exceptions): Create global NotFoundException for all repositories.&#10;- refactor(UserEndpoints): Move Api ConfirmEmail to EmailEndpoints and UpdateToken to TokenEndpoints.&#10;- refactor(ITokenRepository): Rename GetUserIdByRt to GetRefreshToken to reflect its return type.">
+      <option name="closed" value="true" />
+      <created>1758970733323</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1758970733323</updated>
+    </task>
+    <task id="LOCAL-00009" summary="refactor: Restructure token and user logic, and introduce global exceptions&#10;&#10;- refactor(UserRepository): Divide logic to TokenRepository (and update User's Command).&#10;- feat(Exceptions): Create global NotFoundException for all repositories.&#10;- refactor(UserEndpoints): Move Api ConfirmEmail to EmailEndpoints and UpdateToken to TokenEndpoints.&#10;- refactor(ITokenRepository): Rename GetUserIdByRt to GetRefreshToken to reflect its return type.">
+      <option name="closed" value="true" />
+      <created>1758971195866</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1758971195866</updated>
+    </task>
+    <task id="LOCAL-00010" summary="refactor(EmailService): Implement a type-safe email template management system&#10;&#10;- Moved email message logic out of EmailService.&#10;- Added ConfirmEmailTemplate.html and ensured it copies to bin/.net8.0 on startup.&#10;- Introduced IEmailTemplates and registered EmailTemplates as a Singleton in DI.&#10;- Added EmailTemplateTypes and EmailPlaceholders for type safety.&#10;- Created FillPlaceholders extension method for string substitution.">
+      <option name="closed" value="true" />
+      <created>1758972508416</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1758972508416</updated>
+    </task>
+    <task id="LOCAL-00011" summary="refactor(Tokens): move Tokens.cs to folder models">
+      <option name="closed" value="true" />
+      <created>1759079906828</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1759079906828</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat(validation): Implement MediatR pipeline validation using FluentValidation">
+      <option name="closed" value="true" />
+      <created>1759081526680</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1759081526680</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat(api): Implement global exception handler middleware">
+      <option name="closed" value="true" />
+      <created>1759081571993</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1759081571993</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat(users): Add validation for Create, Login, UpdateToken user commands">
+      <option name="closed" value="true" />
+      <created>1759082090280</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1759082090280</updated>
+    </task>
+    <task id="LOCAL-00015" summary="git rm --cached appsettings.Development.json">
+      <option name="closed" value="true" />
+      <created>1759083518291</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1759083518291</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,6 +352,17 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="add : Api for Register, Migration" />
@@ -229,7 +370,17 @@
     <MESSAGE value="add AddAuthentication with JWT token;   &#10;add Login Api" />
     <MESSAGE value="added Authorization with role" />
     <MESSAGE value="db migration" />
-    <option name="LAST_COMMIT_MESSAGE" value="db migration" />
+    <MESSAGE value="Added :Refresh token,&#10; api for update tokens,&#10; table &quot;RefreshToken&quot;to db" />
+    <MESSAGE value="change Access Token's duration from hours to minutes" />
+    <MESSAGE value="Added :Refresh token,&#10; api for update tokens,&#10; table &quot;RefreshToken&quot;to db" />
+    <MESSAGE value="refactor: Restructure token and user logic, and introduce global exceptions&#10;&#10;- refactor(UserRepository): Divide logic to TokenRepository (and update User's Command).&#10;- feat(Exceptions): Create global NotFoundException for all repositories.&#10;- refactor(UserEndpoints): Move Api ConfirmEmail to EmailEndpoints and UpdateToken to TokenEndpoints.&#10;- refactor(ITokenRepository): Rename GetUserIdByRt to GetRefreshToken to reflect its return type." />
+    <MESSAGE value="refactor(EmailService): Implement a type-safe email template management system&#10;&#10;- Moved email message logic out of EmailService.&#10;- Added ConfirmEmailTemplate.html and ensured it copies to bin/.net8.0 on startup.&#10;- Introduced IEmailTemplates and registered EmailTemplates as a Singleton in DI.&#10;- Added EmailTemplateTypes and EmailPlaceholders for type safety.&#10;- Created FillPlaceholders extension method for string substitution." />
+    <MESSAGE value="refactor(Tokens): move Tokens.cs to folder models" />
+    <MESSAGE value="feat(validation): Implement MediatR pipeline validation using FluentValidation" />
+    <MESSAGE value="feat(api): Implement global exception handler middleware" />
+    <MESSAGE value="feat(users): Add validation for Create, Login, UpdateToken user commands" />
+    <MESSAGE value="git rm --cached appsettings.Development.json" />
+    <option name="LAST_COMMIT_MESSAGE" value="git rm --cached appsettings.Development.json" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
