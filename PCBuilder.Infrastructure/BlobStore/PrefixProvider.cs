@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Options;
-using PCBuidler.Domain.Shared;
+using PCBuidler.Domain.Shared.BlobStore;
 using PCBuilder.Application.Interfaces.FileStorages;
 
 namespace PCBuilder.Infrastructure.BlobStore;
