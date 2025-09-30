@@ -10,14 +10,14 @@ public class User
     public bool EmailConfirmed { private set; get; }
     public string AvatarUrl{ set; get; }
 
-    private User(Guid id, string userName, string email, string passwordHash)
+    private User(Guid id, string userName, string email, string passwordHash, string avatarUrl)
     {
         Id = id;
         UserName = userName;
         PasswordHash = passwordHash;
         Email = email;
         EmailConfirmed = false;
-        AvatarUrl = "";
+        AvatarUrl =avatarUrl;
     }
 
     public void ConfirmEmail()
@@ -25,8 +25,8 @@ public class User
         EmailConfirmed = true;
     }
     
-    public static User Create(Guid id, string userName, string email, string passwordHash)
+    public static User Create(Guid id, string userName, string email, string passwordHash, string avatarUrl)
     {
-        return new User(id, userName, email, passwordHash);
+        return new User(id, userName, email, passwordHash,avatarUrl);
     }
 }
