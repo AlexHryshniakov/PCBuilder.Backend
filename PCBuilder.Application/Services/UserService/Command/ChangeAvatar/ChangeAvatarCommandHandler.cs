@@ -1,5 +1,8 @@
+using System.Runtime.InteropServices.JavaScript;
 using MediatR;
 using PCBuidler.Domain.Shared;
+using PCBuidler.Domain.Shared.BlobStore;
+using PCBuidler.Domain.Shared.Saga;
 using PCBuilder.Application.Interfaces.Auth;
 using PCBuilder.Application.Interfaces.FileStorages;
 using PCBuilder.Application.Interfaces.Repositories;
@@ -23,12 +26,25 @@ public class ChangeAvatarCommandHandler:IRequestHandler<ChangeAvatarCommand,stri
     public async Task<string> Handle(ChangeAvatarCommand request, CancellationToken ct)
     {
        var fileName= _prefixProvider.GetObjectPath(PrefixesOptions.UsersAvatar,request.UserId.ToString());
-      
-       await _fileStorage.UploadFileAsync(request.AvatarStream, fileName, request.ContentType, ct);
-      
        var url= _fileStorage.GetFileUrl(fileName);
-       
-       await _usersRepository.UpdateAvatar(request.UserId, url,ct);
+ 
+       var saga = new SagaOrchestrator();
+       await saga.Execute(new List<SagaStep>
+       {
+           new (
+               execute: () => _fileStorage.UploadFileAsync(
+                   request.AvatarStream, fileName, request.ContentType, ct),
+               compensate: () => _fileStorage.DeleteFileAsync(fileName, ct)
+           ),
+            
+           new (
+               execute: () => _usersRepository.UpdateAvatar(request.UserId, url, ct),
+               compensate: () => Task.CompletedTask 
+           )
+       });
+
        return url;
     }
 }
+
+
