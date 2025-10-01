@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using PCBuilder.Application.Services.UserService.Commands.ChangeAvatar;
 using PCBuilder.Application.Services.UserService.Commands.CreateUser;
 using PCBuilder.Application.Services.UserService.Commands.LoginUser;
+using PCBuilder.Application.Services.UserService.Queries.GetUserDetails;
 using PCBuilder.WebApi.Binders;
 using PCBuilder.WebApi.Contracts.Users;
 
@@ -15,6 +16,7 @@ public static class UsersEndpoints
     {
         app.MapPost("user/register", Register);
         app.MapPost("user/login", Login);
+        app.MapGet("user/profile/my", GetMyUserInfo).RequireAuthorization();
         app.MapPost("user/change/avatar", UpdateAvatar).RequireAuthorization().DisableAntiforgery();
 
         return app;
@@ -69,5 +71,15 @@ public static class UsersEndpoints
         string url = await mediator.Send(command, ct);
     
         return Results.Ok(url);
+    }
+    
+    public static async Task<IResult> GetMyUserInfo(
+        AuthenticatedUserId userId,
+        [FromServices]IMediator mediator,
+        CancellationToken ct)
+    {
+        var command = new GetUserDetailsQuery() { UserId = userId.Value };
+        var vm =  await mediator.Send(command, ct);
+        return Results.Ok(vm);
     }
 }

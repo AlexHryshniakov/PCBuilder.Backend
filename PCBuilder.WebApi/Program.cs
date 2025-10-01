@@ -4,6 +4,7 @@ using PCBuilder.Application;
 using PCBuilder.Application.Common.Mapping;
 using PCBuilder.Application.Interfaces.Repositories;
 using PCBuilder.Application.Services;
+using PCBuilder.Application.Services.UserService.Queries.GetUserDetails;
 using PCBuilder.Infrastructure;
 using PCBuilder.Infrastructure.Authentication;
 using PCBuilder.Infrastructure.EmailSender;
@@ -23,6 +24,7 @@ services.AddApiAuthentication(configuration);
 builder.Services.AddAutoMapper(config =>
 {
     config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
+    config.AddProfile(new AssemblyMappingProfile(typeof(GetUserDetailsQueryVm).Assembly));
     config.AddMaps(typeof(DataBaseMappings).Assembly);
     
 });
