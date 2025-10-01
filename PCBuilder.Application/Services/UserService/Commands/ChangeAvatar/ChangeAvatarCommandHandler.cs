@@ -23,8 +23,9 @@ public class ChangeAvatarCommandHandler:IRequestHandler<ChangeAvatarCommand,stri
     public async Task<string> Handle(ChangeAvatarCommand request, CancellationToken ct)
     {
        var fileName= _prefixProvider.GetObjectPath(PrefixesOptions.UsersAvatar,request.UserId.ToString());
-       var url= _fileStorage.GetFileUrl(fileName);
- 
+       var newUrl= _fileStorage.GetFileUrl(fileName);
+       var currentUser = await _usersRepository.GetById(request.UserId, ct);
+       
        var saga = new SagaOrchestrator();
        await saga.Execute(new List<SagaStep>
        {
@@ -33,14 +34,14 @@ public class ChangeAvatarCommandHandler:IRequestHandler<ChangeAvatarCommand,stri
                    request.AvatarStream, fileName, request.ContentType, ct),
                compensate: () => _fileStorage.DeleteFileAsync(fileName, ct)
            ),
-            
+           
            new (
-               execute: () => _usersRepository.UpdateAvatar(request.UserId, url, ct),
-               compensate: () => Task.CompletedTask 
+               execute: () => _usersRepository.UpdateAvatar(request.UserId, newUrl, ct),
+               compensate: () => _usersRepository.UpdateAvatar(request.UserId, currentUser.AvatarUrl, ct)
            )
        });
 
-       return url;
+       return newUrl;
     }
 }
 
