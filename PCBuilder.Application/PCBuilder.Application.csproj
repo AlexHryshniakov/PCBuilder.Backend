@@ -20,6 +20,7 @@
 
     <ItemGroup>
       <Folder Include="Services\UserService\Command\RevocationRt\" />
+      <Folder Include="Services\UserService\Commands\RevocationRt\" />
     </ItemGroup>
 
 </Project>
