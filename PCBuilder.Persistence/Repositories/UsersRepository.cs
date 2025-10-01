@@ -5,6 +5,7 @@ using PCBuidler.Domain.Models;
 using PCBuilder.Application.Common.Exceptions;
 using PCBuilder.Application.Interfaces.Repositories;
 using PCBuilder.Persistence.Entities;
+using PCBuilder.Persistence.Extensions;
 
 namespace PCBuilder.Persistence.Repositories;
 
@@ -36,9 +37,11 @@ public class UsersRepository:IUsersRepository
             Roles = [roleEntity]
         };
         await _dbContext.Users.AddAsync(userEntity,ct);
-        await _dbContext.SaveChangesAsync(ct);
+        
+        await _dbContext.SaveChangesAndHandleErrorsAsync(ct, pgEx
+                => throw new DuplicateException(nameof(User), nameof(user.Email), user.Email));
     }
-
+    
     public async Task<User> GetByEmail(string email,CancellationToken ct)
     {
         var userEntity = await _dbContext.Users
