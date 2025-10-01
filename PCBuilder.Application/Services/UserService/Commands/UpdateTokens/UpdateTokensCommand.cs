@@ -1,7 +1,7 @@
 using MediatR;
 using PCBuidler.Domain.Shared.Auth;
 
-namespace PCBuilder.Application.Services.UserService.Command.UpdateTokens;
+namespace PCBuilder.Application.Services.UserService.Commands.UpdateTokens;
 
 public class UpdateTokensCommand:IRequest<Tokens>
 {

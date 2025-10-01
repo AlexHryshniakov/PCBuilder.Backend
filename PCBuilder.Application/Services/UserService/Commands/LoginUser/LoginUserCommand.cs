@@ -1,7 +1,7 @@
 using MediatR;
 using PCBuidler.Domain.Shared.Auth;
 
-namespace PCBuilder.Application.Services.UserService.Command.LoginUser;
+namespace PCBuilder.Application.Services.UserService.Commands.LoginUser;
 
 public class LoginUserCommand:IRequest<Tokens>
 {

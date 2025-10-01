@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace PCBuilder.Application.Services.UserService.Command.LoginUser;
+namespace PCBuilder.Application.Services.UserService.Commands.LoginUser;
 
 public class LoginUserCommandValidator:AbstractValidator<LoginUserCommand>
 {

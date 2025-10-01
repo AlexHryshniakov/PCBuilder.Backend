@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace PCBuilder.Application.Services.UserService.Command.ChangeAvatar;
+namespace PCBuilder.Application.Services.UserService.Commands.ChangeAvatar;
 
 public class ChangeAvatarCommand:IRequest<string>
 {

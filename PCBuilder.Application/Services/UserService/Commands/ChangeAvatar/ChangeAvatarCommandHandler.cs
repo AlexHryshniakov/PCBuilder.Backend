@@ -1,13 +1,10 @@
-using System.Runtime.InteropServices.JavaScript;
 using MediatR;
-using PCBuidler.Domain.Shared;
 using PCBuidler.Domain.Shared.BlobStore;
 using PCBuidler.Domain.Shared.Saga;
-using PCBuilder.Application.Interfaces.Auth;
 using PCBuilder.Application.Interfaces.FileStorages;
 using PCBuilder.Application.Interfaces.Repositories;
 
-namespace PCBuilder.Application.Services.UserService.Command.ChangeAvatar;
+namespace PCBuilder.Application.Services.UserService.Commands.ChangeAvatar;
 
 public class ChangeAvatarCommandHandler:IRequestHandler<ChangeAvatarCommand,string>
 {

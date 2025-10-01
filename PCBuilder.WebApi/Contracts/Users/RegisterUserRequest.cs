@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using AutoMapper;
 using PCBuilder.Application.Common.Mapping;
-using PCBuilder.Application.Services.UserService.Command.CreateUser;
+using PCBuilder.Application.Services.UserService.Commands.CreateUser;
 
 namespace PCBuilder.WebApi.Contracts.Users;
 

@@ -6,7 +6,7 @@ using PCBuilder.Application.Interfaces.FileStorages;
 using PCBuilder.Application.Interfaces.Mail;
 using PCBuilder.Application.Interfaces.Repositories;
 
-namespace PCBuilder.Application.Services.UserService.Command.CreateUser;
+namespace PCBuilder.Application.Services.UserService.Commands.CreateUser;
 
 public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
 {

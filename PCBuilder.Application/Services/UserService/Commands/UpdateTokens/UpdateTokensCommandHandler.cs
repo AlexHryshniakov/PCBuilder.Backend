@@ -3,7 +3,7 @@ using PCBuidler.Domain.Shared.Auth;
 using PCBuilder.Application.Interfaces.Auth;
 using PCBuilder.Application.Interfaces.Repositories;
 
-namespace PCBuilder.Application.Services.UserService.Command.UpdateTokens;
+namespace PCBuilder.Application.Services.UserService.Commands.UpdateTokens;
 
 public class UpdateTokensCommandHandler:IRequestHandler<UpdateTokensCommand,Tokens>
 {

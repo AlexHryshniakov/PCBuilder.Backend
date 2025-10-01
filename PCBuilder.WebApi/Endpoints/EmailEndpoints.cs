@@ -1,6 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using PCBuilder.Application.Services.UserService.Command.ConfirmEmail;
+using PCBuilder.Application.Services.UserService.Commands.ConfirmEmail;
 
 namespace PCBuilder.WebApi.Endpoints;
 

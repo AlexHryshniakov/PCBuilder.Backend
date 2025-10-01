@@ -19,8 +19,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Services\UserService\Command\RevocationRt\" />
       <Folder Include="Services\UserService\Commands\RevocationRt\" />
+      <Folder Include="Services\UserService\Queries\" />
     </ItemGroup>
 
 </Project>

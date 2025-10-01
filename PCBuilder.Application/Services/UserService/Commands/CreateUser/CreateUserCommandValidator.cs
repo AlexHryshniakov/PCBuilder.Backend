@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace PCBuilder.Application.Services.UserService.Command.CreateUser;
+namespace PCBuilder.Application.Services.UserService.Commands.CreateUser;
 
 public class CreateUserCommandValidator:AbstractValidator<CreateUserCommand>
 {

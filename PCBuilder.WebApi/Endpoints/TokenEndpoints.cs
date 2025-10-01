@@ -1,7 +1,7 @@
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using PCBuilder.Application.Services.UserService.Command.UpdateTokens;
+using PCBuilder.Application.Services.UserService.Commands.UpdateTokens;
 
 namespace PCBuilder.WebApi.Endpoints;
 

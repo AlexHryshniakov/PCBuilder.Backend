@@ -1,9 +1,8 @@
 using MediatR;
-using PCBuilder.Application.Interfaces.Auth;
 using PCBuilder.Application.Interfaces.Mail;
 using PCBuilder.Application.Interfaces.Repositories;
 
-namespace PCBuilder.Application.Services.UserService.Command.ConfirmEmail;
+namespace PCBuilder.Application.Services.UserService.Commands.ConfirmEmail;
 
 public class ConfirmEmailCommandHandler(
     IUsersRepository usersRepository,

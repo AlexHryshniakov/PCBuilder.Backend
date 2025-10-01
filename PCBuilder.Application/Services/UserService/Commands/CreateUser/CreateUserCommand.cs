@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace PCBuilder.Application.Services.UserService.Command.CreateUser;
+namespace PCBuilder.Application.Services.UserService.Commands.CreateUser;
 
 public class CreateUserCommand:IRequest<Guid>
 {

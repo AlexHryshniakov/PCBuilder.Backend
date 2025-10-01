@@ -1,9 +1,9 @@
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using PCBuilder.Application.Services.UserService.Command.ChangeAvatar;
-using PCBuilder.Application.Services.UserService.Command.CreateUser;
-using PCBuilder.Application.Services.UserService.Command.LoginUser;
+using PCBuilder.Application.Services.UserService.Commands.ChangeAvatar;
+using PCBuilder.Application.Services.UserService.Commands.CreateUser;
+using PCBuilder.Application.Services.UserService.Commands.LoginUser;
 using PCBuilder.WebApi.Binders;
 using PCBuilder.WebApi.Contracts.Users;
 

@@ -3,7 +3,7 @@ using PCBuidler.Domain.Shared.Auth;
 using PCBuilder.Application.Interfaces.Auth;
 using PCBuilder.Application.Interfaces.Repositories;
 
-namespace PCBuilder.Application.Services.UserService.Command.LoginUser;
+namespace PCBuilder.Application.Services.UserService.Commands.LoginUser;
 
 public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, Tokens>
 {

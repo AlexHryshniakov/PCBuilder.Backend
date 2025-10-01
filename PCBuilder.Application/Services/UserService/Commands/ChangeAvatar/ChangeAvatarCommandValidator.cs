@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace PCBuilder.Application.Services.UserService.Command.ChangeAvatar;
+namespace PCBuilder.Application.Services.UserService.Commands.ChangeAvatar;
 
 public class ChangeAvatarCommandValidator:AbstractValidator<ChangeAvatarCommand>
 {

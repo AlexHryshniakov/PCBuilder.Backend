@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace PCBuilder.Application.Services.UserService.Command.UpdateTokens;
+namespace PCBuilder.Application.Services.UserService.Commands.UpdateTokens;
 
 public class UpdateTokensCommandValidator:AbstractValidator<UpdateTokensCommand>
 {
