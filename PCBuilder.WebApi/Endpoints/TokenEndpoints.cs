@@ -9,7 +9,7 @@ public static class TokenEndpoints
 {
     public static IEndpointRouteBuilder MapTokenEndpoints(this IEndpointRouteBuilder app)
     {
-        app.MapPost("update_token", UpdateToken);
+        app.MapPost("token/update", UpdateToken);
         return app;
     }
     

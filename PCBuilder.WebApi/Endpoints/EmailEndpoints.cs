@@ -8,7 +8,7 @@ public static class EmailEndpoints
 {
     public static IEndpointRouteBuilder MapEmailEndpoints(this IEndpointRouteBuilder app)
     {
-        app.MapGet("confirm_email", ConfirmEmail);
+        app.MapGet("email/confirm", ConfirmEmail);
         return app;
     }
     

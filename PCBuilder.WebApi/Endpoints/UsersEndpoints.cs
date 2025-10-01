@@ -17,7 +17,7 @@ public static class UsersEndpoints
         app.MapPost("user/register", Register);
         app.MapPost("user/login", Login);
         app.MapGet("user/profile/my", GetMyUserInfo).RequireAuthorization();
-        app.MapPost("user/change/avatar", UpdateAvatar).RequireAuthorization().DisableAntiforgery();
+        app.MapPost("user/profile/avatar/change", UpdateAvatar).RequireAuthorization().DisableAntiforgery();
 
         return app;
     }

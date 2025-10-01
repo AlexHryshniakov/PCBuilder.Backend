@@ -22,7 +22,7 @@ public class EmailService(
         
         string token= _tokenProvider.GenerateToken(userId);
         
-        var confirmationLink = $"{_baseUrl}/confirm_email?emailToken={token}";
+        var confirmationLink = $"{_baseUrl}/email/confirm?emailToken={token}";
 
         var body = _emailTemplates.
                         GetTemplate(EmailTemplateTypes.ConfirmEmail)
