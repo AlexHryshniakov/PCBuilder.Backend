@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using PCBuilder.Application.Services.UserService.Commands.ChangeAvatar;
 using PCBuilder.Application.Services.UserService.Commands.CreateUser;
 using PCBuilder.Application.Services.UserService.Commands.LoginUser;
+using PCBuilder.Application.Services.UserService.Commands.RevocationRt;
 using PCBuilder.Application.Services.UserService.Queries.GetUserDetails;
 using PCBuilder.WebApi.Binders;
 using PCBuilder.WebApi.Contracts.Users;
@@ -17,10 +18,33 @@ public static class UsersEndpoints
         app.MapPost("user/register", Register);
         app.MapPost("user/login", Login);
         app.MapGet("user/profile/my", GetMyUserInfo).RequireAuthorization();
-        app.MapPost("user/profile/avatar/change", UpdateAvatar).RequireAuthorization().DisableAntiforgery();
+        app.MapPost("user/profile/logout",Logout ).RequireAuthorization();
+        app.MapPut("user/profile/avatar/change", UpdateAvatar).RequireAuthorization().DisableAntiforgery();
 
         return app;
     }
+    public static async Task<IResult> Logout(
+        AuthenticatedUserId userId,
+        [FromServices]IMediator mediator,
+        [FromServices]IMapper mapper,
+        HttpContext context,
+        CancellationToken ct)
+    {
+        var command = new RevokeRtCommand{ UserId = userId.Value };
+        await mediator.Send(command, ct);
+        
+        context.Response.Cookies.Append("secretCookie", String.Empty);
+        context.Response.Cookies.Append("superSecretCookie", String.Empty,new CookieOptions
+        {
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.Strict,
+            Expires = DateTimeOffset.Now
+        });
+        
+        return Results.Ok("you was logged out.");
+    }
+    
     public static async Task<IResult> Register(
         [FromBody] RegisterUserRequest request,
         [FromServices]IMediator mediator,
