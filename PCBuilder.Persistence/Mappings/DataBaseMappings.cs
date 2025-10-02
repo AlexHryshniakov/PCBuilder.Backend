@@ -10,5 +10,6 @@ public class DataBaseMappings :Profile
     {
         CreateMap<UserEntity, User>();
         CreateMap<RefreshTokenEntity, RefreshToken>();
+        CreateMap<EmailTokensEntity, EmailTokens>();
     }
 }

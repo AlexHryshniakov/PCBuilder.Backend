@@ -10,7 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="760ddfa7-2f56-4dc2-8b65-853b4e635d6a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/PCBuidler.Domain/Models/EmailTokens.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Repositories/IEmailRepositories.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/PCBuilder.Application/Services/UserService/Commands/ChangePassword/ChangePasswordCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Configurations/EmailTokensConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Entities/EmailTokensEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Mappings/DataBaseMappings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Mappings/DataBaseMappings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Migrations/PcBuilderDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Migrations/PcBuilderDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/PcBuilderDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/PcBuilderDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/PersistenceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/PersistenceExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PCBuilder.WebApi/Endpoints/EmailEndpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.WebApi/Endpoints/EmailEndpoints.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
