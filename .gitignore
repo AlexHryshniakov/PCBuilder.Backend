@@ -25,3 +25,6 @@ appsettings.Staging.json
 
 # User-specific files
 *.csproj.user
+
+# JetBrains Rider/IntelliJ IDE
+.idea/
