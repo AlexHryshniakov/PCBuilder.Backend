@@ -1,5 +1,6 @@
 using System.Reflection;
 using Microsoft.AspNetCore.CookiePolicy;
+using PCBuidler.Domain.Shared.Email;
 using PCBuilder.Application;
 using PCBuilder.Application.Common.Mapping;
 using PCBuilder.Application.Interfaces.Repositories;

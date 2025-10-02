@@ -2,7 +2,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using Microsoft.Extensions.Options;
-using PCBuilder.Application.Interfaces.Auth;
+using PCBuidler.Domain.Shared.Email;
 using PCBuilder.Application.Interfaces.Mail;
 
 namespace PCBuilder.Infrastructure.EmailSender;
@@ -16,7 +16,6 @@ public class EmailTokenProvider(IOptions<EmailTokenOptions> emailToken):IEmailTo
         var payload = new
         {
             userId = userId.ToString(),
-            expiry = DateTimeOffset.UtcNow.Add(_options.Lifetime).ToUnixTimeSeconds()
         };
     
         var payloadJson = JsonSerializer.Serialize(payload);

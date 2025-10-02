@@ -1,6 +1,8 @@
 ﻿using MediatR;
+using Microsoft.Extensions.Options;
 using PCBuidler.Domain.Models;
 using PCBuidler.Domain.Shared.BlobStore;
+using PCBuidler.Domain.Shared.Email;
 using PCBuilder.Application.Interfaces.Auth;
 using PCBuilder.Application.Interfaces.FileStorages;
 using PCBuilder.Application.Interfaces.Mail;
@@ -14,22 +16,31 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
     private readonly IUsersRepository _usersRepository;
     private readonly IEmailService _emailService;
     private readonly IFileStorage _fileStorage;
+    private readonly IEmailRepositories _emailRepositories;
+    private readonly IEmailTokenProvider _tokenProvider;
+    private readonly EmailTokenOptions _tokenOptions;
     
-    public CreateUserCommandHandler(IPasswordHasher passwordHasher, IUsersRepository usersRepository, IEmailService emailService, IFileStorage fileStorage)
+    public CreateUserCommandHandler(IPasswordHasher passwordHasher,
+        IUsersRepository usersRepository, IEmailService emailService,
+        IFileStorage fileStorage, IEmailRepositories emailRepositories, 
+        IEmailTokenProvider tokenProvider, IOptions<EmailTokenOptions> emailToken)
     {
         _passwordHasher = passwordHasher;
         _usersRepository = usersRepository;
         _emailService = emailService;
         _fileStorage = fileStorage;
+        _emailRepositories = emailRepositories;
+        _tokenProvider = tokenProvider;
+        _tokenOptions = emailToken.Value;
     }
     
     public async Task<Guid> Handle(CreateUserCommand request, CancellationToken ct)
     {  
-        
         var passwordHash = _passwordHasher.Generate(request.Password);
 
+        Guid userId = Guid.NewGuid();
         var user = User.Create(
-            Guid.NewGuid(),
+            userId,
             request.UserName,
             request.Email,
             passwordHash,
@@ -37,7 +48,11 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
             );
         
         await _usersRepository.Add(user, ct);
-        await _emailService.SendConfirmEmailAsync(request.Email, user.Id);
+        
+        
+        string token= _tokenProvider.GenerateToken(userId);
+        await _emailRepositories.AddEmailTokens(userId, token,_tokenOptions.ConfirmTokenLifetime,ct);
+        await _emailService.SendConfirmEmailAsync(request.Email, token,user.Id,ct);
         
         return user.Id;
     }
