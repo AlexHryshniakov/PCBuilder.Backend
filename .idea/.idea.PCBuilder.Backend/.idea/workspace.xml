@@ -18,6 +18,10 @@
       <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Mappings/DataBaseMappings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Mappings/DataBaseMappings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/Migrations/PcBuilderDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/Migrations/PcBuilderDbContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/PcBuilderDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/PcBuilderDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PCBuilder.Backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PCBuilder.Backend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Mail/IEmailService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Mail/IEmailService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Mail/IEmailTokenProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Application/Interfaces/Mail/IEmailTokenProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PCBuilder.Infrastructure/EmailSender/EmailTokenProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Infrastructure/EmailSender/EmailTokenProvider.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PCBuilder.Persistence/PersistenceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.Persistence/PersistenceExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PCBuilder.WebApi/Endpoints/EmailEndpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PCBuilder.WebApi/Endpoints/EmailEndpoints.cs" afterDir="false" />
     </list>
