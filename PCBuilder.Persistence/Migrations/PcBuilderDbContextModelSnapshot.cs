@@ -22,6 +22,46 @@ namespace PCBuilder.Persistence.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("PCBuilder.Persistence.Entities.EmailTokensEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset>("ConfirmEmailExpiresAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("ConfirmEmailToken")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTimeOffset>("PasswordResetExpiresAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("PasswordResetIsAllowed")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("PasswordResetToken")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ConfirmEmailToken")
+                        .IsUnique();
+
+                    b.HasIndex("Id")
+                        .IsUnique();
+
+                    b.HasIndex("PasswordResetToken")
+                        .IsUnique();
+
+                    b.ToTable("EmailTokens");
+                });
+
             modelBuilder.Entity("PCBuilder.Persistence.Entities.PermissionEntity", b =>
                 {
                     b.Property<int>("Id")
