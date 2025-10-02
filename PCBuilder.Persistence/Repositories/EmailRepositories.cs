@@ -27,6 +27,16 @@ public class EmailRepositories : IEmailRepositories
         return _mapper.Map<EmailTokens>(emailTokenEntity);
     }
     
+    public async Task<EmailTokens> GetEmailTokensByConfirmToken(string confirmToken, CancellationToken ct)
+    {
+        var emailTokenEntity= 
+            await _dbContext.EmailTokens
+                .FirstOrDefaultAsync(x => x.ConfirmEmailToken==confirmToken, ct)
+            ?? throw new NotFoundException(nameof(EmailTokensEntity), confirmToken);
+        
+        return _mapper.Map<EmailTokens>(emailTokenEntity);
+    }
+    
     public async Task AddEmailTokens(Guid userId, string confirmEmailToken,
         TimeSpan confirmEmailExpiresAt, CancellationToken ct)
     {

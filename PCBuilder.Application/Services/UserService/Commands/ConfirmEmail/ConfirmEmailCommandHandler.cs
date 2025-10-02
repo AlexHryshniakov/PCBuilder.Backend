@@ -15,7 +15,7 @@ public class ConfirmEmailCommandHandler : IRequestHandler<ConfirmEmailCommand>
     }
     public async Task Handle(ConfirmEmailCommand request, CancellationToken ct)
     {
-         var emailTokens = await _emailRepositories.GetEmailTokensByConfirm(request.EmailToken, ct);
+         var emailTokens = await _emailRepositories.GetEmailTokensByConfirmToken(request.EmailToken, ct);
         
          if(emailTokens == null)
              throw new InvalidOperationException("Confirm token not found");

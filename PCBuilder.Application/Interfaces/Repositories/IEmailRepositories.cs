@@ -8,7 +8,8 @@ public interface IEmailRepositories
     
     public Task AddEmailTokens(Guid userId, string confirmEmailToken, TimeSpan confirmEmailExpiresAt, CancellationToken cancellationToken);
     public  Task ApplyConfirmEmailTokens(string confirmToken, CancellationToken cancellationToken);
-
+    public Task<EmailTokens> GetEmailTokensByConfirmToken(string confirmToken, CancellationToken cancellationToken);
+    
     public Task ResetPassword(Guid userId, string passwordResetToken, DateTimeOffset passwordResetExpiresAt, CancellationToken cancellationToken);
     public Task AllowedChangePassword(Guid userId, CancellationToken cancellationToken);
     public Task ApplyResetPassword(string resetPasswordToken, CancellationToken cancellationToken);
