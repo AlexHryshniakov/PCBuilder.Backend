@@ -98,6 +98,15 @@ public class UsersRepository:IUsersRepository
         return _mapper.Map<User>(userEntity);
     }
     
-
+    public async Task UpdatePassword(Guid userId,string newPasswordHash,CancellationToken ct)
+    {
+        var userEntity = await _dbContext.Users
+                             .AsNoTracking()
+                             .FirstOrDefaultAsync(u => u.Id == userId,ct)
+                         ?? throw new NotFoundException(nameof(User), userId);
+        userEntity.PasswordHash = newPasswordHash;
+        _dbContext.Users.Update(userEntity);
+        await _dbContext.SaveChangesAsync(ct);
+    }
  
 }

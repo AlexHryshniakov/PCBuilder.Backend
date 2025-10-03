@@ -20,6 +20,9 @@
       <Content Include="EmailMessage\Templates\ConfirmEmailTemplate.html">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <None Update="EmailMessage\Templates\ResetPasswordTemplate.html">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

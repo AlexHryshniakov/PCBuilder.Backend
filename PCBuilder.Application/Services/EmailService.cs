@@ -33,6 +33,22 @@ public class EmailService:IEmailService
                         });
         await _emailSender.SendEmailAsync(email,subject, body);
     }
+    
+    
+    public async Task SendResetPasswordEmailAsync(string email,string token)
+    {
+        string subject = "Reset your password";
+        
+        var passwordResetLink = $"{_baseUrl}/email/password/reset?token={token}";
+
+        var body = _emailTemplates.
+            GetTemplate(EmailTemplateTypes.ResetPassword)
+            .FillPlaceholders(new Dictionary<EmailPlaceholders,string>
+            {
+                [EmailPlaceholders.ApiLink] = passwordResetLink,
+            });
+        await _emailSender.SendEmailAsync(email,subject, body);
+    }
 }
 public class ApiSettings
 {

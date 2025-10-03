@@ -28,7 +28,9 @@ public static class InfrastructureExtensions
                     [EmailTemplateTypes.ConfirmEmail] = 
                         File.ReadAllText(Path.Combine(AppContext.BaseDirectory,
                             "EmailMessage\\Templates", "ConfirmEmailTemplate.html")),
-                    
+                    [EmailTemplateTypes.ResetPassword] = 
+                        File.ReadAllText(Path.Combine(AppContext.BaseDirectory,
+                            "EmailMessage\\Templates", "ResetPasswordTemplate.html")),
                 }));
         
         services.AddScoped<IPrefixProvider, PrefixProvider>();

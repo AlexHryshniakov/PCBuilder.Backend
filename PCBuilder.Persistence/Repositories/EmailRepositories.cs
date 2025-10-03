@@ -68,24 +68,24 @@ public class EmailRepositories : IEmailRepositories
     }
 
     public async Task ResetPassword(Guid userId, string passwordResetToken,
-        DateTimeOffset passwordResetExpiresAt, CancellationToken ct)
+        int passwordResetExpiresAt, CancellationToken ct)
     {
         var emailTokenEntity = await _dbContext.EmailTokens.
             FirstOrDefaultAsync(x => x.UserId == userId, ct)
             ?? throw new NotFoundException(nameof(EmailTokensEntity), userId);
         
         emailTokenEntity.PasswordResetToken = passwordResetToken;
-        emailTokenEntity.PasswordResetExpiresAt = passwordResetExpiresAt;
+        emailTokenEntity.PasswordResetExpiresAt = DateTimeOffset.UtcNow.AddMinutes(passwordResetExpiresAt);
         
         _dbContext.EmailTokens.Update(emailTokenEntity);
         await _dbContext.SaveChangesAsync(ct);
     }
 
-    public async Task AllowedChangePassword(Guid userId, CancellationToken ct)
+    public async Task AllowedChangePassword(string passwordResetToken, CancellationToken ct)
     {
         var emailTokenEntity = await _dbContext.EmailTokens.
-            FirstOrDefaultAsync(x => x.UserId == userId, ct)
-            ?? throw new NotFoundException(nameof(EmailTokensEntity), userId);
+            FirstOrDefaultAsync(x => x.PasswordResetToken == passwordResetToken, ct)
+            ?? throw new NotFoundException(nameof(EmailTokensEntity), passwordResetToken);
         
         emailTokenEntity.PasswordResetIsAllowed = true;
         
@@ -93,11 +93,11 @@ public class EmailRepositories : IEmailRepositories
         await _dbContext.SaveChangesAsync(ct);
     }
 
-    public async Task ApplyResetPassword(string resetPasswordToken, CancellationToken ct)
+    public async Task ApplyResetPassword(Guid userId, CancellationToken ct)
     {
         var emailTokenEntity = await _dbContext.EmailTokens.
-            FirstOrDefaultAsync(x => x.PasswordResetToken== resetPasswordToken, ct)
-            ?? throw new NotFoundException(nameof(EmailTokensEntity), resetPasswordToken);
+            FirstOrDefaultAsync(x => x.UserId==userId, ct)
+            ?? throw new NotFoundException(nameof(EmailTokensEntity), userId);
         
         emailTokenEntity.PasswordResetToken= String.Empty;
         emailTokenEntity.PasswordResetExpiresAt = DateTimeOffset.UtcNow;
@@ -105,5 +105,15 @@ public class EmailRepositories : IEmailRepositories
         
         _dbContext.EmailTokens.Update(emailTokenEntity);
         await _dbContext.SaveChangesAsync(ct);
+    }
+    
+    public async Task<EmailTokens> GetEmailTokensByResetPasswordToken(string resetPasswordToken, CancellationToken ct)
+    {
+        var emailTokenEntity= 
+            await _dbContext.EmailTokens
+                .FirstOrDefaultAsync(x => x.PasswordResetToken==resetPasswordToken, ct)
+            ?? throw new NotFoundException(nameof(EmailTokensEntity), resetPasswordToken);
+        
+        return _mapper.Map<EmailTokens>(emailTokenEntity);
     }
 }

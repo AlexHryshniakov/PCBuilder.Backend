@@ -2,7 +2,9 @@ using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PCBuilder.Application.Services.UserService.Commands.ChangeAvatar;
+using PCBuilder.Application.Services.UserService.Commands.ChangePassword;
 using PCBuilder.Application.Services.UserService.Commands.CreateUser;
+using PCBuilder.Application.Services.UserService.Commands.ForgotPassword;
 using PCBuilder.Application.Services.UserService.Commands.LoginUser;
 using PCBuilder.Application.Services.UserService.Commands.RevocationRt;
 using PCBuilder.Application.Services.UserService.Queries.GetUserDetails;
@@ -17,10 +19,12 @@ public static class UsersEndpoints
     {
         app.MapPost("user/register", Register);
         app.MapPost("user/login", Login);
+        app.MapPost("user/login/password/forgot", ForgotPassword);
+        app.MapPost("user/password/change", ChangePassword);
         app.MapGet("user/profile/my", GetMyUserInfo).RequireAuthorization();
         app.MapPost("user/profile/logout",Logout ).RequireAuthorization();
         app.MapPut("user/profile/avatar/change", UpdateAvatar).RequireAuthorization().DisableAntiforgery();
-
+        
         return app;
     }
     public static async Task<IResult> Logout(
@@ -105,5 +109,27 @@ public static class UsersEndpoints
         var command = new GetUserDetailsQuery() { UserId = userId.Value };
         var vm =  await mediator.Send(command, ct);
         return Results.Ok(vm);
+    }
+    
+    public static async Task<IResult> ForgotPassword(
+        string email,
+        [FromServices]IMediator mediator,
+        CancellationToken ct)
+    {
+        var command = new ForgotPasswordCommand() { Email = email};
+          await mediator.Send(command, ct);
+        return Results.Ok("check your email");
+    }
+    
+    public static async Task<IResult> ChangePassword(
+        ChangePasswordRequest request,
+        [FromServices]IMediator mediator,
+        [FromServices]IMapper mapper,
+        CancellationToken ct)
+    {
+        var command = mapper.Map<ChangePasswordCommand>(request);
+        
+        await mediator.Send(command, ct);
+        return Results.Ok("Password was changed successfully");
     }
 }
