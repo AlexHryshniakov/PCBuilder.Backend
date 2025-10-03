@@ -6,7 +6,7 @@ public interface IEmailRepositories
 {
     public Task<EmailTokens> GetEmailTokens(Guid userId, CancellationToken ct);
     
-    public Task AddEmailTokens(Guid userId, string confirmEmailToken, TimeSpan confirmEmailExpiresAt, CancellationToken cancellationToken);
+    public Task AddEmailTokens(Guid userId, string confirmEmailToken, int confirmEmailExpiresAt, CancellationToken cancellationToken);
     public  Task ApplyConfirmEmailTokens(string confirmToken, CancellationToken cancellationToken);
     public Task<EmailTokens> GetEmailTokensByConfirmToken(string confirmToken, CancellationToken cancellationToken);
     

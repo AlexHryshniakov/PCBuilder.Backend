@@ -51,8 +51,8 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
         
         
         string token= _tokenProvider.GenerateToken(userId);
-        await _emailRepositories.AddEmailTokens(userId, token,_tokenOptions.ConfirmTokenLifetime,ct);
-        await _emailService.SendConfirmEmailAsync(request.Email, token,user.Id,ct);
+        await _emailRepositories.AddEmailTokens(userId, token,_tokenOptions.ConfirmTokenLifetimeInHours,ct);
+        await _emailService.SendConfirmEmailAsync(request.Email, token);
         
         return user.Id;
     }

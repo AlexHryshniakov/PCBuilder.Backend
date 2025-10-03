@@ -50,13 +50,7 @@ namespace PCBuilder.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ConfirmEmailToken")
-                        .IsUnique();
-
                     b.HasIndex("Id")
-                        .IsUnique();
-
-                    b.HasIndex("PasswordResetToken")
                         .IsUnique();
 
                     b.ToTable("EmailTokens");

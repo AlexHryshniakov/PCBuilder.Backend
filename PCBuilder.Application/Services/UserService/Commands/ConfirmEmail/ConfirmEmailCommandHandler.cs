@@ -19,7 +19,7 @@ public class ConfirmEmailCommandHandler : IRequestHandler<ConfirmEmailCommand>
         
          if(emailTokens == null)
              throw new InvalidOperationException("Confirm token not found");
-         if(emailTokens.ConfirmEmailExpiresAt > DateTime.UtcNow)
+         if(emailTokens.ConfirmEmailExpiresAt < DateTime.UtcNow)
             throw new InvalidOperationException("Confirm token expired");
 
          await _emailRepositories.ApplyConfirmEmailTokens(request.EmailToken, ct);

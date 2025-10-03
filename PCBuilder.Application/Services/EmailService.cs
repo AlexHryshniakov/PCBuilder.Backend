@@ -19,7 +19,7 @@ public class EmailService:IEmailService
         _baseUrl = apiOptions.Value.BaseUrl;
     }
     
-    public async Task SendConfirmEmailAsync(string email,string token,Guid userId,CancellationToken ct)
+    public async Task SendConfirmEmailAsync(string email,string token)
     {
         string subject = "Confirm your email";
         

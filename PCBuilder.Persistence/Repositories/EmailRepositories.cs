@@ -38,14 +38,14 @@ public class EmailRepositories : IEmailRepositories
     }
     
     public async Task AddEmailTokens(Guid userId, string confirmEmailToken,
-        TimeSpan confirmEmailExpiresAt, CancellationToken ct)
+        int confirmEmailExpiresAt, CancellationToken ct)
     {
         var emailTokenEntity = new EmailTokensEntity
         {
             Id = Guid.NewGuid(),
             UserId = userId,
             ConfirmEmailToken = confirmEmailToken,
-            ConfirmEmailExpiresAt = DateTimeOffset.UtcNow.Add(confirmEmailExpiresAt),
+            ConfirmEmailExpiresAt = DateTimeOffset.UtcNow.AddHours(confirmEmailExpiresAt),
             PasswordResetToken = String.Empty,
             PasswordResetExpiresAt = DateTimeOffset.UtcNow,
             PasswordResetIsAllowed = false
