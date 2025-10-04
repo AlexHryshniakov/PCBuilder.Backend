@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PCBuilder.Persistence.Entities;
+using PCBuilder.Persistence.Entities.User;
 
-namespace PCBuilder.Persistence.Configurations;
+namespace PCBuilder.Persistence.Configurations.User;
 
 public class RefreshTokenConfiguration:IEntityTypeConfiguration<RefreshTokenEntity>
 {

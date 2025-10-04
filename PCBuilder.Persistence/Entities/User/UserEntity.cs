@@ -1,8 +1,4 @@
-﻿using AutoMapper;
-using PCBuidler.Domain.Models;
-using PCBuilder.Application.Common.Mapping;
-
-namespace PCBuilder.Persistence.Entities;
+﻿namespace PCBuilder.Persistence.Entities.User;
 
 public class UserEntity 
 {

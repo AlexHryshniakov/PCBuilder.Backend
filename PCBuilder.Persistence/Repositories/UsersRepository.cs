@@ -4,7 +4,7 @@ using PCBuidler.Domain.Enums;
 using PCBuidler.Domain.Models;
 using PCBuilder.Application.Common.Exceptions;
 using PCBuilder.Application.Interfaces.Repositories;
-using PCBuilder.Persistence.Entities;
+using PCBuilder.Persistence.Entities.User;
 using PCBuilder.Persistence.Extensions;
 
 namespace PCBuilder.Persistence.Repositories;

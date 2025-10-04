@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using PCBuidler.Domain.Models;
 using PCBuilder.Application.Common.Exceptions;
 using PCBuilder.Application.Interfaces.Repositories;
-using PCBuilder.Persistence.Entities;
+using PCBuilder.Persistence.Entities.User;
 
 namespace PCBuilder.Persistence.Repositories;
 

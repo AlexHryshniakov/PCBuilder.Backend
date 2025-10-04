@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using PCBuilder.Persistence.Configurations;
-using PCBuilder.Persistence.Entities;
+using PCBuilder.Persistence.Configurations.User;
+using PCBuilder.Persistence.Entities.User;
 
 namespace PCBuilder.Persistence;
 

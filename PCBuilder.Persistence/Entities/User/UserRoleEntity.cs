@@ -1,4 +1,4 @@
-﻿namespace PCBuilder.Persistence.Entities;
+﻿namespace PCBuilder.Persistence.Entities.User;
 
 public class UserRoleEntity
 {
