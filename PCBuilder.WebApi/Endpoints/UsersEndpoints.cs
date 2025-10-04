@@ -106,8 +106,8 @@ public static class UsersEndpoints
         [FromServices]IMediator mediator,
         CancellationToken ct)
     {
-        var command = new GetUserDetailsQuery() { UserId = userId.Value };
-        var vm =  await mediator.Send(command, ct);
+        var query = new GetUserDetailsQuery() { UserId = userId.Value };
+        var vm =  await mediator.Send(query, ct);
         return Results.Ok(vm);
     }
     
