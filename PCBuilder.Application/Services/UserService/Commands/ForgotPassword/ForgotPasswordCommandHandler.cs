@@ -33,6 +33,9 @@ public class ForgotPasswordCommandHandler:IRequestHandler<ForgotPasswordCommand>
         if(user == null)
             throw new Exception($"User with email: {request.Email} doesn't exist");
 
+        if(!user.EmailConfirmed)
+            throw new Exception($"User with email: {request.Email} wasn't confirmed");
+        
         var token = _emailTokenProvider.GenerateToken(user.Id);
         
         await _emailRepositories.ResetPassword(user.Id, token,_tokenOptions.ResetPasswordTokenLifetimeInMinutes,ct);
