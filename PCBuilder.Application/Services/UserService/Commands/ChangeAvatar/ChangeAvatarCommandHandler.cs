@@ -21,7 +21,8 @@ public class ChangeAvatarCommandHandler:IRequestHandler<ChangeAvatarCommand,stri
 
     public async Task<string> Handle(ChangeAvatarCommand request, CancellationToken ct)
     {
-       var fileName= _prefixProvider.GetObjectPath(PrefixesOptions.UsersAvatar,request.UserId.ToString());
+       var fileName= _prefixProvider
+           .GetObjectPath(PrefixesOptions.UsersAvatar,request.UserId.ToString());
        var newUrl= _fileStorage.GetFileUrl(fileName);
        var currentUser = await _usersRepository.GetById(request.UserId, ct);
        
@@ -36,7 +37,8 @@ public class ChangeAvatarCommandHandler:IRequestHandler<ChangeAvatarCommand,stri
            
            new (
                execute: () => _usersRepository.UpdateAvatar(request.UserId, newUrl, ct),
-               compensate: () => _usersRepository.UpdateAvatar(request.UserId, currentUser.AvatarUrl, ct)
+               compensate: () => _usersRepository.UpdateAvatar(
+                   request.UserId, currentUser.AvatarUrl, ct)
            )
        });
 
