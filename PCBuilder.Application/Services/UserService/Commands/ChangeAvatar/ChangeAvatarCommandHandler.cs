@@ -32,6 +32,8 @@ public class ChangeAvatarCommandHandler:IRequestHandler<ChangeAvatarCommand,stri
 
         var saga = new SagaOrchestrator();
 
+        await using (request)
+        {
             await saga.Execute(new List<SagaStep>()
                 .AddStep(new(
                         execute: () =>
@@ -51,5 +53,6 @@ public class ChangeAvatarCommandHandler:IRequestHandler<ChangeAvatarCommand,stri
             await _fileStorage.CopyFileAsync(tempFileName, fileName, ct);
             await _fileStorage.DeleteFileAsync(tempFileName, ct);
             return newUrl;
+        }
     }
 }
