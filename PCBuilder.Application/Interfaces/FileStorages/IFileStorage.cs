@@ -7,4 +7,5 @@ public interface IFileStorage
     Task DeleteFileAsync(string fileName, CancellationToken ct);
     Task<string> ReplaceFileAsync(Stream fileStream, string fileName, string contentType, CancellationToken ct);
     string GetFileUrl(string fileName);
+    Task CopyFileAsync(string sourceFileName, string destinationFileName, CancellationToken ct);
 }

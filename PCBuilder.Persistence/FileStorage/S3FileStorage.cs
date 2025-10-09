@@ -60,4 +60,15 @@ public class S3FileStorage(IAmazonS3 s3Client, IOptions<AwsS3Options> options)
         return $"https://{_bucketName}.s3.{_awsRegion}.amazonaws.com/{fileName}";
     }
 
+    public async Task CopyFileAsync(string sourceFileName, string destinationFileName, CancellationToken ct)
+    {
+        var request = new CopyObjectRequest()
+        {
+            SourceBucket= _bucketName,
+            SourceKey = sourceFileName,
+           DestinationBucket = _bucketName,
+            DestinationKey = destinationFileName
+        };
+        await s3Client.CopyObjectAsync(request,ct);
+    }
 }
