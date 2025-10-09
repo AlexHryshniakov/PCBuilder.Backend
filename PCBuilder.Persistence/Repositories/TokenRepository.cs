@@ -50,7 +50,7 @@ public class TokenRepository:ITokenRepository
             ?? throw new InvalidOperationException();
         
         refreshTokenEntity.Token = token;
-        
+        refreshTokenEntity.ExpiresAt = DateTimeOffset.UtcNow.AddDays(7);
         await _dbContext.SaveChangesAsync(ct);
     }
     
