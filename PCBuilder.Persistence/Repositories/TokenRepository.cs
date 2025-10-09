@@ -47,7 +47,7 @@ public class TokenRepository:ITokenRepository
         var refreshTokenEntity = 
             await _dbContext.RefreshTokens
                 .FirstOrDefaultAsync(r=>r.UserId == userId ,ct)
-            ?? throw new InvalidOperationException();
+            ?? throw new NotFoundException(nameof(RefreshToken),userId);
         
         refreshTokenEntity.Token = token;
         refreshTokenEntity.ExpiresAt = DateTimeOffset.UtcNow.AddDays(7);
@@ -58,7 +58,7 @@ public class TokenRepository:ITokenRepository
     {
         var refreshTokenEntity = await _dbContext.RefreshTokens
                                      .FirstOrDefaultAsync(r=>r.UserId == userId ,ct)
-                                 ?? throw new InvalidOperationException();
+                                 ?? throw new NotFoundException(nameof(RefreshToken),userId);
         
         refreshTokenEntity.Token = "";
         refreshTokenEntity.ExpiresAt = DateTime.UtcNow;
