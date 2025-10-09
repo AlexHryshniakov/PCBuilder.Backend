@@ -22,7 +22,7 @@ public class SagaOrchestrator
         }
     }
 
-    public async Task CompensateAllCompleted(Exception originalException)
+    private async Task CompensateAllCompleted(Exception originalException)
     {
         while (_executedSteps.Count > 0)
         {
