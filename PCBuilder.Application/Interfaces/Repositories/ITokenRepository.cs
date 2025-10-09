@@ -8,4 +8,5 @@ public interface ITokenRepository
     Task UpdateRefreshToken(Guid userId, string token, CancellationToken cancellationToken);
     Task RevocateRefreshToken(Guid userId, CancellationToken cancellationToken);
     Task<RefreshToken?> GetRefreshToken(string token, CancellationToken cancellationToken);
+    Task<RefreshToken?> GetRefreshToken(Guid userId, CancellationToken cancellationToken);
 }

@@ -73,5 +73,12 @@ public class TokenRepository:ITokenRepository
 
         return _mapper.Map<RefreshToken>(refreshTokenEntity);
     }
+    public async Task<RefreshToken?> GetRefreshToken(Guid userId, CancellationToken ct)
+    {
+        var refreshTokenEntity = await _dbContext.RefreshTokens
+                                     .FirstOrDefaultAsync(r => r.UserId==userId, ct)
+                                 ?? throw new NotFoundException(nameof(RefreshToken), userId);
 
+        return _mapper.Map<RefreshToken>(refreshTokenEntity);
+    }
 }
