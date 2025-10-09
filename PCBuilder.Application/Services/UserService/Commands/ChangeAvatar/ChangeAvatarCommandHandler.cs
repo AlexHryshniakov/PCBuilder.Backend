@@ -19,7 +19,6 @@ public class ChangeAvatarCommandHandler:IRequestHandler<ChangeAvatarCommand,stri
         _fileStorage = fileStorage;
     }
 
-
     public async Task<string> Handle(ChangeAvatarCommand request, CancellationToken ct)
     {
        var fileName= _prefixProvider.GetObjectPath(PrefixesOptions.UsersAvatar,request.UserId.ToString());
@@ -44,5 +43,3 @@ public class ChangeAvatarCommandHandler:IRequestHandler<ChangeAvatarCommand,stri
        return newUrl;
     }
 }
-
-
