@@ -1,5 +1,7 @@
 using MediatR;
+using PCBuidler.Domain.Models;
 using PCBuidler.Domain.Shared.Auth;
+using PCBuilder.Application.Common.Exceptions;
 using PCBuilder.Application.Interfaces.Auth;
 using PCBuilder.Application.Interfaces.Repositories;
 
@@ -29,6 +31,9 @@ public class UpdateTokensCommandHandler:IRequestHandler<UpdateTokensCommand,Toke
         var rt = await _tokenRepository.GetRefreshToken(request.RefreshToken,
             ct).ConfigureAwait(false);
 
+        if (rt == null)
+            throw new NotFoundException(nameof(RefreshToken), request.RefreshToken);
+        
         if (rt.ExpiresAt < DateTimeOffset.UtcNow) 
         {
             await _tokenRepository.RevocateRefreshToken(rt.UserId, ct).ConfigureAwait(false);
