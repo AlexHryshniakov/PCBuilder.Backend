@@ -21,27 +21,35 @@ public class ChangeAvatarCommandHandler:IRequestHandler<ChangeAvatarCommand,stri
 
     public async Task<string> Handle(ChangeAvatarCommand request, CancellationToken ct)
     {
-       var fileName= _prefixProvider
-           .GetObjectPath(PrefixesOptions.UsersAvatar,request.UserId.ToString());
-       var newUrl= _fileStorage.GetFileUrl(fileName);
-       var currentUser = await _usersRepository.GetById(request.UserId, ct);
-       
-       var saga = new SagaOrchestrator();
-       await saga.Execute(new List<SagaStep>
-       {
-           new (
-               execute: () => _fileStorage.UploadFileAsync(
-                   request.AvatarStream, fileName, request.ContentType, ct),
-               compensate: () => _fileStorage.DeleteFileAsync(fileName, ct)
-           ),
-           
-           new (
-               execute: () => _usersRepository.UpdateAvatar(request.UserId, newUrl, ct),
-               compensate: () => _usersRepository.UpdateAvatar(
-                   request.UserId, currentUser.AvatarUrl, ct)
-           )
-       });
+        var fileName = _prefixProvider
+            .GetObjectPath(PrefixesOptions.UsersAvatar, request.UserId.ToString());
+        var tempFileName =
+            _prefixProvider.GetTempObjectPath(PrefixesOptions.UsersAvatar, request.UserId.ToString());
 
-       return newUrl;
+        var newUrl = _fileStorage.GetFileUrl(fileName);
+
+        var currentUser = await _usersRepository.GetById(request.UserId, ct);
+
+        var saga = new SagaOrchestrator();
+
+            await saga.Execute(new List<SagaStep>()
+                .AddStep(new(
+                        execute: () =>
+                            _fileStorage.UploadFileAsync(request.AvatarStream, tempFileName, request.ContentType, ct),
+                        compensate: () =>
+                            _fileStorage.DeleteFileAsync(tempFileName, ct)),
+                    condition: true
+                )
+                .AddStep(new(
+                        execute: () =>
+                            _usersRepository.UpdateAvatar(request.UserId, newUrl, ct),
+                        compensate: ()
+                            => _usersRepository.UpdateAvatar(request.UserId, currentUser.AvatarUrl, ct)),
+                    condition: !String.Equals(currentUser.AvatarUrl, newUrl))
+            );
+
+            await _fileStorage.CopyFileAsync(tempFileName, fileName, ct);
+            await _fileStorage.DeleteFileAsync(tempFileName, ct);
+            return newUrl;
     }
 }
