@@ -11,6 +11,9 @@ public class PrefixProvider(IOptions<PrefixesOptions> s3Options)
     
     public string GetObjectPath(string path,string id)=>
     $"{path}/{id}";
+
+    public string GetTempObjectPath(string path, string id) =>
+        $"{path}/{id}.temp";
 }
 
 
