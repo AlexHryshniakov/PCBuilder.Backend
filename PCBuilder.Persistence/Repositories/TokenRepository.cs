@@ -61,7 +61,7 @@ public class TokenRepository:ITokenRepository
                                  ?? throw new NotFoundException(nameof(RefreshToken),userId);
         
         refreshTokenEntity.Token = "";
-        refreshTokenEntity.ExpiresAt = DateTime.UtcNow;
+        refreshTokenEntity.ExpiresAt = DateTime.UtcNow.AddHours(-1);
         await _dbContext.SaveChangesAsync(ct);
     }
 
