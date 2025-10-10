@@ -55,7 +55,6 @@ public class UsersRepository:IUsersRepository
     public async Task UpdateAvatar(Guid userId,string url,CancellationToken ct)
     {
         var userEntity = await _dbContext.Users
-                             .AsNoTracking()
                              .FirstOrDefaultAsync(u => u.Id == userId,ct)
                          ?? throw new NotFoundException(nameof(User), userId);
         userEntity.AvatarUrl = url;
@@ -93,7 +92,9 @@ public class UsersRepository:IUsersRepository
     
     public async Task<User> GetById(Guid userId, CancellationToken ct)
     {
-        var userEntity = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId, ct)
+        var userEntity = await _dbContext.Users
+                             .AsNoTracking()
+                             .FirstOrDefaultAsync(u => u.Id == userId, ct)
                          ?? throw new NotFoundException(nameof(User), userId);
         return _mapper.Map<User>(userEntity);
     }
@@ -101,7 +102,6 @@ public class UsersRepository:IUsersRepository
     public async Task UpdatePassword(Guid userId,string newPasswordHash,CancellationToken ct)
     {
         var userEntity = await _dbContext.Users
-                             .AsNoTracking()
                              .FirstOrDefaultAsync(u => u.Id == userId,ct)
                          ?? throw new NotFoundException(nameof(User), userId);
         userEntity.PasswordHash = newPasswordHash;
