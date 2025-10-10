@@ -26,17 +26,17 @@ public class S3FileStorage(IAmazonS3 s3Client, IOptions<AwsS3Options> options)
         return response.ResponseStream;
     }
 
-    public async Task<string> ReplaceFileAsync(
+    public async Task ReplaceFileAsync(
         Stream fileStream,
         string fileName,
         string contentType,
         CancellationToken ct)
     {
         await DeleteFileAsync(fileName,ct);
-        return await UploadFileAsync(fileStream, fileName, contentType,ct);
+        await UploadFileAsync(fileStream, fileName, contentType,ct);
     }
 
-    public async Task<string> UploadFileAsync(
+    public async Task UploadFileAsync(
         Stream fileStream,
         string fileName,
         string contentType,
@@ -51,8 +51,6 @@ public class S3FileStorage(IAmazonS3 s3Client, IOptions<AwsS3Options> options)
         };
 
         await s3Client.PutObjectAsync(request, ct);
-
-        return fileName;
     }
 
     public string GetFileUrl(string fileName)
