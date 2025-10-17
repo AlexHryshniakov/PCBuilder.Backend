@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PCBuidler.Domain.Enums;
-using PCBuilder.Persistence.Entities;
 using PCBuilder.Persistence.Entities.User;
 
 namespace PCBuilder.Persistence.Configurations.User;
