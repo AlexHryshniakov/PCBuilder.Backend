@@ -1,5 +1,5 @@
 using PCBuilder.Core.Enums;
-using PCBuilder.Core.Models;
+using PCBuilder.Core.Models.Users;
 
 namespace PCBuilder.Application.Interfaces.Repositories;
 

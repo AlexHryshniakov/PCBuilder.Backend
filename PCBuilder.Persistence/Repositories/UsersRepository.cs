@@ -1,9 +1,9 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using PCBuilder.Core.Enums;
-using PCBuilder.Core.Models;
 using PCBuilder.Application.Common.Exceptions;
 using PCBuilder.Application.Interfaces.Repositories;
+using PCBuilder.Core.Models.Users;
 using PCBuilder.Persistence.Entities.User;
 using PCBuilder.Persistence.Extensions;
 

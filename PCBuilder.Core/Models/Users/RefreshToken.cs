@@ -1,4 +1,4 @@
-namespace PCBuilder.Core.Models;
+namespace PCBuilder.Core.Models.Users;
 
 public class RefreshToken
 {

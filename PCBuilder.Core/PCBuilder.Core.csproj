@@ -9,7 +9,6 @@
     <ItemGroup>
       <Folder Include="Models\Accessories\" />
       <Folder Include="Models\Computer\" />
-      <Folder Include="Models\Users\" />
     </ItemGroup>
 
 </Project>

@@ -1,12 +1,12 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Options;
-using PCBuilder.Core.Models;
 using PCBuilder.Core.Shared.BlobStore;
 using PCBuilder.Core.Shared.Email;
 using PCBuilder.Application.Interfaces.Auth;
 using PCBuilder.Application.Interfaces.FileStorages;
 using PCBuilder.Application.Interfaces.Mail;
 using PCBuilder.Application.Interfaces.Repositories;
+using PCBuilder.Core.Models.Users;
 
 namespace PCBuilder.Application.Services.UserService.Commands.CreateUser;
 

@@ -1,5 +1,5 @@
 using AutoMapper;
-using PCBuilder.Core.Models;
+using PCBuilder.Core.Models.Users;
 using PCBuilder.Persistence.Entities.User;
 
 namespace PCBuilder.Persistence.Mappings;

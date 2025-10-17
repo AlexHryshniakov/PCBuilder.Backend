@@ -3,9 +3,9 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using PCBuilder.Core.Models;
 using PCBuilder.Core.Shared.Auth;
 using PCBuilder.Application.Interfaces.Auth;
+using PCBuilder.Core.Models.Users;
 
 namespace PCBuilder.Infrastructure.Authentication;
 

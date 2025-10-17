@@ -1,9 +1,9 @@
 using MediatR;
-using PCBuilder.Core.Models;
 using PCBuilder.Core.Shared.Auth;
 using PCBuilder.Application.Common.Exceptions;
 using PCBuilder.Application.Interfaces.Auth;
 using PCBuilder.Application.Interfaces.Repositories;
+using PCBuilder.Core.Models.Users;
 
 namespace PCBuilder.Application.Services.UserService.Commands.UpdateTokens;
 

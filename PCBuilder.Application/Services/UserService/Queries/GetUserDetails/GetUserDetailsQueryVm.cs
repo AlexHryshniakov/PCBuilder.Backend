@@ -1,6 +1,6 @@
 using AutoMapper;
-using PCBuilder.Core.Models;
 using PCBuilder.Application.Common.Mapping;
+using PCBuilder.Core.Models.Users;
 
 namespace PCBuilder.Application.Services.UserService.Queries.GetUserDetails;
 
