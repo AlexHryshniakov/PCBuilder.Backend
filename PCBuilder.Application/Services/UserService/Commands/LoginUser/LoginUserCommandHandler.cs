@@ -39,7 +39,7 @@ public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, Tokens>
         var result = _passwordHasher.Verify(request.Password, user.PasswordHash);
 
         if (result == false)
-            throw new Exception("Password not valid" +" Email:"+request.Email+" Password: "+request.Password);
+            throw new Exception("Password not valid");
 
         var accessToken = _jwtProvider.GenerateToken(user);
         var refreshToken = _rtProvider.GenerateToken();
