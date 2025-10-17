@@ -1,5 +1,5 @@
 using MediatR;
-using PCBuidler.Domain.Shared.Auth;
+using PCBuilder.Core.Shared.Auth;
 
 namespace PCBuilder.Application.Services.UserService.Commands.UpdateTokens;
 

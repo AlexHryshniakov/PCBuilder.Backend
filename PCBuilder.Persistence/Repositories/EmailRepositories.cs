@@ -1,6 +1,6 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using PCBuidler.Domain.Models;
+using PCBuilder.Core.Models;
 using PCBuilder.Application.Common.Exceptions;
 using PCBuilder.Application.Interfaces.Repositories;
 using PCBuilder.Persistence.Entities.User;

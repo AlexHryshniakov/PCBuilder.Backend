@@ -2,7 +2,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using Microsoft.Extensions.Options;
-using PCBuidler.Domain.Shared.Email;
+using PCBuilder.Core.Shared.Email;
 using PCBuilder.Application.Interfaces.Mail;
 
 namespace PCBuilder.Infrastructure.EmailSender;

@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
-using PCBuidler.Domain.Enums;
+using PCBuilder.Core.Enums;
 
 namespace PCBuilder.Infrastructure.Authentication;
 

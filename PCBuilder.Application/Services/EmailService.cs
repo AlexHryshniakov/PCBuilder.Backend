@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Options;
-using PCBuidler.Domain.Enums;
+using PCBuilder.Core.Enums;
 using PCBuilder.Application.Common.Extensions.StringExtensions;
 using PCBuilder.Application.Interfaces.Mail;
 

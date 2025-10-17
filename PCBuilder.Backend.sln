@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCBuidler.Domain", "PCBuidler.Domain\PCBuidler.Domain.csproj", "{32C37B88-59E2-4AAD-8BE2-8DD260198186}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCBuilder.Core", "PCBuilder.Core\PCBuilder.Core.csproj", "{32C37B88-59E2-4AAD-8BE2-8DD260198186}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCBuilder.Persistence", "PCBuilder.Persistence\PCBuilder.Persistence.csproj", "{0D2BCBE6-452B-44F2-97E2-D839B2BF1CF7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCBuilder.Application", "PCBuilder.Application\PCBuilder.Application.csproj", "{107978B5-F25B-4DC8-BE37-D75A09B79E3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCBuilder.WebApi", "PCBuilder.WebApi\PCBuilder.WebApi.csproj", "{1010D888-368D-4572-990E-BB5679730F45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCBuilder.API", "PCBuilder.API\PCBuilder.API.csproj", "{1010D888-368D-4572-990E-BB5679730F45}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCBuilder.Infrastructure", "PCBuilder.Infrastructure\PCBuilder.Infrastructure.csproj", "{7668F229-CB6E-4F61-9DEF-9EA332DDB914}"
 EndProject

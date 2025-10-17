@@ -1,5 +1,5 @@
 using AutoMapper;
-using PCBuidler.Domain.Models;
+using PCBuilder.Core.Models;
 using PCBuilder.Application.Common.Mapping;
 
 namespace PCBuilder.Application.Services.UserService.Queries.GetUserDetails;

@@ -1,5 +1,5 @@
-using PCBuidler.Domain.Enums;
-using PCBuidler.Domain.Models;
+using PCBuilder.Core.Enums;
+using PCBuilder.Core.Models;
 
 namespace PCBuilder.Application.Interfaces.Repositories;
 

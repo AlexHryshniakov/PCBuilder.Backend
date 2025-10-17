@@ -1,4 +1,4 @@
-using PCBuidler.Domain.Models;
+using PCBuilder.Core.Models;
 
 namespace PCBuilder.Application.Interfaces.Repositories;
 

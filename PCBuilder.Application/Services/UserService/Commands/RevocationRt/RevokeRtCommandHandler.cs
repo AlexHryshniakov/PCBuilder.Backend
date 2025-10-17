@@ -1,5 +1,5 @@
 using MediatR;
-using PCBuidler.Domain.Models;
+using PCBuilder.Core.Models;
 using PCBuilder.Application.Common.Exceptions;
 using PCBuilder.Application.Interfaces.Repositories;
 

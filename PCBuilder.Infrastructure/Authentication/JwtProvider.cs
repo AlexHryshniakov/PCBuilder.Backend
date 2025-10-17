@@ -3,8 +3,8 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using PCBuidler.Domain.Models;
-using PCBuidler.Domain.Shared.Auth;
+using PCBuilder.Core.Models;
+using PCBuilder.Core.Shared.Auth;
 using PCBuilder.Application.Interfaces.Auth;
 
 namespace PCBuilder.Infrastructure.Authentication;

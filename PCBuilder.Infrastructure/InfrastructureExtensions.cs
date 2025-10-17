@@ -1,5 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
-using PCBuidler.Domain.Enums;
+using PCBuilder.Core.Enums;
 using PCBuilder.Application.Interfaces.Auth;
 using PCBuilder.Application.Interfaces.FileStorages;
 using PCBuilder.Application.Interfaces.Mail;

@@ -1,4 +1,4 @@
-using PCBuidler.Domain.Enums;
+using PCBuilder.Core.Enums;
 
 namespace PCBuilder.Application.Interfaces.Auth;
 

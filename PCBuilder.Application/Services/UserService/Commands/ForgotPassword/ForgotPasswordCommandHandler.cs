@@ -1,6 +1,6 @@
 using MediatR;
 using Microsoft.Extensions.Options;
-using PCBuidler.Domain.Shared.Email;
+using PCBuilder.Core.Shared.Email;
 using PCBuilder.Application.Interfaces.Mail;
 using PCBuilder.Application.Interfaces.Repositories;
 

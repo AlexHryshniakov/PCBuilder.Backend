@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using PCBuilder.Application.Interfaces.Auth;
-using PCBuidler.Domain.Shared.Auth;
+using PCBuilder.Core.Shared.Auth;
 
 namespace PCBuilder.Infrastructure.Authentication;
 

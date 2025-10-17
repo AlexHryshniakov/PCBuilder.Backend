@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Options;
-using PCBuidler.Domain.Models;
-using PCBuidler.Domain.Shared.BlobStore;
-using PCBuidler.Domain.Shared.Email;
+using PCBuilder.Core.Models;
+using PCBuilder.Core.Shared.BlobStore;
+using PCBuilder.Core.Shared.Email;
 using PCBuilder.Application.Interfaces.Auth;
 using PCBuilder.Application.Interfaces.FileStorages;
 using PCBuilder.Application.Interfaces.Mail;

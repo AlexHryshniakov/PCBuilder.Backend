@@ -1,5 +1,5 @@
 using MediatR;
-using PCBuidler.Domain.Shared.Auth;
+using PCBuilder.Core.Shared.Auth;
 using PCBuilder.Application.Interfaces.Auth;
 using PCBuilder.Application.Interfaces.Repositories;
 

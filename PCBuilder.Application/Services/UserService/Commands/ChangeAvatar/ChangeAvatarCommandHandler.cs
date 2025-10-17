@@ -1,6 +1,6 @@
 using MediatR;
-using PCBuidler.Domain.Shared.BlobStore;
-using PCBuidler.Domain.Shared.Saga;
+using PCBuilder.Core.Shared.BlobStore;
+using PCBuilder.Core.Shared.Saga;
 using PCBuilder.Application.Interfaces.FileStorages;
 using PCBuilder.Application.Interfaces.Repositories;
 
