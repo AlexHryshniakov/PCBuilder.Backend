@@ -11,5 +11,10 @@ public class RefreshTokenConfiguration:IEntityTypeConfiguration<RefreshTokenEnti
         builder.HasKey(u => u.Id);
         builder.HasIndex(r => r.Token);
         builder.HasIndex(r => r.UserId);
+        
+        builder.HasOne<UserEntity>()
+            .WithMany()
+            .HasForeignKey(r => r.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

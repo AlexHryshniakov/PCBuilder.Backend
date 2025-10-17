@@ -10,5 +10,12 @@ public class EmailTokensConfiguration:IEntityTypeConfiguration<EmailTokensEntity
     {
         builder.HasKey(e => e.Id);
         builder.HasIndex(e=>e.Id).IsUnique(); 
+        
+        builder.HasOne<UserEntity>()
+            .WithMany()
+            .HasForeignKey(e => e.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+        
+        builder.HasIndex(e => e.UserId).IsUnique(); 
     }
 }
