@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using PCBuilder.Persistence.Configurations.Components;
+using PCBuilder.Persistence.Configurations.ItemProperties;
 using PCBuilder.Persistence.Configurations.User;
 using PCBuilder.Persistence.Entities.Components;
+using PCBuilder.Persistence.Entities.ItemProperties;
 using PCBuilder.Persistence.Entities.User;
 
 namespace PCBuilder.Persistence;
@@ -17,6 +19,7 @@ public class PcBuilderDbContext(
     public DbSet<RoleEntity> Roles { get; set; }
     
     public DbSet<CpuEntity> Cpu { get; set; }
+    public DbSet<SocketEntity> Sockets { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -32,5 +35,6 @@ public class PcBuilderDbContext(
         modelBuilder.ApplyConfiguration(new UserRoleConfiguration());
         
         modelBuilder.ApplyConfiguration(new CpuConfiguration());
+        modelBuilder.ApplyConfiguration(new SocketConfiguration());
     }
 }
