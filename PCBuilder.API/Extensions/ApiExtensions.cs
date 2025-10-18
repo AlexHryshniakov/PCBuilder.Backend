@@ -14,6 +14,7 @@ public static class ApiExtensions
 {
     public static void AddMappedEndpoints(this IEndpointRouteBuilder app)
     {
+        app.MapCpuEndpoints();
         app.MapUsersEndpoints();
         app.MapComputerEndpoints();
         app.MapEmailEndpoints();
