@@ -38,8 +38,9 @@ public class UsersRepository:IUsersRepository
         };
         await _dbContext.Users.AddAsync(userEntity,ct);
         
-        await _dbContext.SaveChangesAndHandleErrorsAsync(ct, pgEx
-                => throw new DuplicateException(nameof(User), nameof(user.Email), user.Email));
+        await _dbContext.SaveChangesAndHandleErrorsAsync(ct, 
+            onDuplicateKeyError: pgEx => 
+                throw new DuplicateException(nameof(User), nameof(user.Email), user.Email));
     }
     
     public async Task<User> GetByEmail(string email,CancellationToken ct)

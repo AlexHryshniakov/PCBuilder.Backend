@@ -6,11 +6,13 @@ namespace PCBuilder.Persistence.Extensions;
 public static class DbContextExtensions
 {
     private const string UniqueViolationSqlState = "23505";
+    private const string ForeignKeyViolationSqlState = "23503"; 
 
     public static async Task SaveChangesAndHandleErrorsAsync(
         this DbContext dbContext, 
         CancellationToken ct,
-        Action<PostgresException> onDuplicateKeyError)
+        Action<PostgresException>? onForeignKeyError = null, 
+        Action<PostgresException>? onDuplicateKeyError = null) 
     {
         try
         {
@@ -22,7 +24,11 @@ public static class DbContextExtensions
             {
                 if (pgEx.SqlState == UniqueViolationSqlState)
                 {
-                    onDuplicateKeyError(pgEx);
+                    onDuplicateKeyError?.Invoke(pgEx); 
+                }
+                else if (pgEx.SqlState == ForeignKeyViolationSqlState)
+                {
+                    onForeignKeyError?.Invoke(pgEx); 
                 }
             }
             
