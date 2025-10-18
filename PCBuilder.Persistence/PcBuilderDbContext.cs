@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using PCBuilder.Persistence.Configurations.Components;
 using PCBuilder.Persistence.Configurations.User;
+using PCBuilder.Persistence.Entities.Components;
 using PCBuilder.Persistence.Entities.User;
 
 namespace PCBuilder.Persistence;
@@ -14,6 +16,8 @@ public class PcBuilderDbContext(
     public DbSet<EmailTokensEntity> EmailTokens { get; set; }
     public DbSet<RoleEntity> Roles { get; set; }
     
+    public DbSet<CpuEntity> Cpu { get; set; }
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         //   modelBuilder.ApplyConfigurationsFromAssembly(typeof(PcBuilderDbContext).Assembly);
@@ -26,5 +30,7 @@ public class PcBuilderDbContext(
         modelBuilder.ApplyConfiguration(new RoleConfiguration());
         modelBuilder.ApplyConfiguration(new UserConfiguration());
         modelBuilder.ApplyConfiguration(new UserRoleConfiguration());
+        
+        modelBuilder.ApplyConfiguration(new CpuConfiguration());
     }
 }
