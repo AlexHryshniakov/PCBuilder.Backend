@@ -7,7 +7,7 @@ using PCBuilder.Core.Shared.Saga;
 
 namespace PCBuilder.Application.Services.CpuService.Commands.CreateCpu;
 
-public class CreateCpuCommandHandler: IRequestHandler<CreateCpuCommand>
+public class CreateCpuCommandHandler: IRequestHandler<CreateCpuCommand,Guid>
 {
     private readonly ICpuRepository _cpuRepository;
     private readonly IFileStorage _fileStorage;
@@ -20,7 +20,7 @@ public class CreateCpuCommandHandler: IRequestHandler<CreateCpuCommand>
         _prefixProvider = prefixProvider;
     }
 
-    public async Task Handle(CreateCpuCommand request, CancellationToken ct)
+    public async Task<Guid> Handle(CreateCpuCommand request, CancellationToken ct)
     {
         bool isAvatarUploaded = request.PhotoStream != Stream.Null;
         
@@ -75,6 +75,6 @@ public class CreateCpuCommandHandler: IRequestHandler<CreateCpuCommand>
                         )
                 );
         }
-        
+        return cpu.Id;
     }
 }

@@ -2,7 +2,7 @@ using MediatR;
 
 namespace PCBuilder.Application.Services.CpuService.Commands.CreateCpu;
 
-public class CreateCpuCommand :IRequest,IAsyncDisposable
+public class CreateCpuCommand :IRequest<Guid>,IAsyncDisposable
 {
     public string Name{ get; set;}=string.Empty;
     public string Manufacturer{ get;set; }=string.Empty;

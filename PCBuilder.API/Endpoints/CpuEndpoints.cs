@@ -23,5 +23,7 @@ public static class CpuEndpoints
         var command = mapper.Map<CreateCpuCommand>(request);
         await mediator.Send(command, ct);
         return Results.Ok();
+        var id = await mediator.Send(command, ct);
+        return Results.Ok(id);
     } 
 }
