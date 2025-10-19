@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PCBuilder.API.Contracts.Cpus;
 using PCBuilder.Application.Services.CpuService.Commands.CreateCpu;
+using PCBuilder.Application.Services.CpuService.Commands.DeleteCpu;
 
 namespace PCBuilder.API.Endpoints;
 
@@ -10,7 +11,8 @@ public static class CpuEndpoints
 {
     public static IEndpointRouteBuilder MapCpuEndpoints(this IEndpointRouteBuilder app)
     {
-        app.MapPost("cpu/create", Create).RequireAuthorization().DisableAntiforgery();
+        app.MapPost("cpu/create", Create).DisableAntiforgery();
+        app.MapDelete("cpu/delete", Delete);
         return app;
     }
 
@@ -21,9 +23,18 @@ public static class CpuEndpoints
         CancellationToken ct)
     {
         var command = mapper.Map<CreateCpuCommand>(request);
-        await mediator.Send(command, ct);
-        return Results.Ok();
         var id = await mediator.Send(command, ct);
         return Results.Ok(id);
+    } 
+    
+    public static async Task<IResult> Delete(
+        Guid cpuId,
+        [FromServices]IMediator mediator,
+        [FromServices]IMapper mapper,
+        CancellationToken ct)
+    {
+        var command = new DeleteCpuCommand{Id=cpuId};
+        await mediator.Send(command, ct);
+        return Results.Ok();
     } 
 }
