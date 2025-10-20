@@ -22,8 +22,6 @@ public class CustomExceptionHandlerMiddleware
         {
             await HandlerExceptionAsync(context, exception);
         }
-
-           
     }
 
     private Task HandlerExceptionAsync(HttpContext context,Exception exception)
@@ -34,10 +32,35 @@ public class CustomExceptionHandlerMiddleware
         {
             case ValidationException validationException:
                 code = HttpStatusCode.BadRequest;
-                result= JsonSerializer.Serialize(validationException.Errors);
+    
+                var errors = 
+                    validationException.Errors.Select(
+                            failure => new 
+                            {
+                                PropertyName = failure.PropertyName,
+                                ErrorMessage = failure.ErrorMessage
+                            })
+                        .ToList();
+        
+                result = JsonSerializer.Serialize(errors);
                 break;
-            case NotFoundException:
+            
+            case NotFoundException notFoundException:
                 code = HttpStatusCode.NotFound;
+                result = JsonSerializer.Serialize(new 
+                {
+                    error = notFoundException.Message,
+                    code = (int)HttpStatusCode.NotFound
+                });
+                break;
+            
+            case DuplicateException duplicateException:
+                code = HttpStatusCode.Conflict;
+                result = JsonSerializer.Serialize(new 
+                {
+                    error = duplicateException.Message,
+                    code = (int)HttpStatusCode.Conflict
+                });
                 break;
         }
 
