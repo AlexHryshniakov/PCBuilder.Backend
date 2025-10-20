@@ -1,4 +1,5 @@
 using MediatR;
+using PCBuilder.Application.Common.Extensions.ComponentExtensions;
 using PCBuilder.Application.Interfaces.FileStorages;
 using PCBuilder.Application.Interfaces.Repositories;
 using PCBuilder.Core.Shared.BlobStore;
@@ -22,13 +23,9 @@ public class DeleteCpuCommandHandler: IRequestHandler<DeleteCpuCommand>
     {
         var cpu = await _cpuRepository.GetByIdAsync(request.Id, ct);
 
-        var photoUrl = cpu.PhotoUrl;
-        var cpuId = photoUrl.Split("/").Last();
-        bool isPhotoCustom = string.Equals(cpuId, cpu.Id.ToString());
-
         await _cpuRepository.DeleteAsync(request.Id, ct);
 
-        if (isPhotoCustom)
+        if (cpu.IsPhotoCustom())
         {
             var fileName =
                 _prefixProvider.GetObjectPath(PrefixesOptions.Cpu, cpu.Id.ToString());
