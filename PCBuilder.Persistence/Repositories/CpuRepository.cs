@@ -100,6 +100,15 @@ public class CpuRepository: ICpuRepository
         await _dbContext.SaveChangesAsync(ct);
     }
 
+    public async Task UpdatePhotoAsync(Guid cpuId, string newPhotoUrl, CancellationToken ct)
+    {
+        var cpuEntity = await _dbContext.Cpu
+                            .FirstOrDefaultAsync(c=>c.Id==cpuId, ct)
+                        ??throw new NotFoundException(nameof(Cpu), cpuId);
+        cpuEntity.PhotoUrl = newPhotoUrl;
+        await _dbContext.SaveChangesAsync(ct);
+    }
+
     public async Task<Cpu> GetByIdAsync(Guid id, CancellationToken ct)
     {
         var cpuEntity = await _dbContext.Cpu
