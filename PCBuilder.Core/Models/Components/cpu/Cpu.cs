@@ -1,6 +1,8 @@
+using PCBuilder.Core.Interfaces;
+
 namespace PCBuilder.Core.Models.Components.cpu;
 
-public class Cpu
+public class Cpu : IWithPhotoUrl
 {
     public Guid Id { get; }
     public string Name{ get; }
