@@ -5,26 +5,26 @@ namespace PCBuilder.Core.Models.Components.cpu;
 public class Cpu : IWithPhotoUrl
 {
     public Guid Id { get; }
-    public string Name{ get; }
-    public string Manufacturer{ get; }
-    public string Model{ get; }
-    public string Description{get;}
+    public string Name{ get; set; }
+    public string Manufacturer{ get; set; }
+    public string Model{ get; set; }
+    public string Description{get; set; }
     public string PhotoUrl{get;}
-    public Guid SocketId{get;}
-    public int? PerformanceCores { get; }
-    public int? EfficiencyCores { get; }
-    public string Generation{get;}
-    public int Threads{get;}
-    public double BaseClockSpeed{get;}
-    public double? BoostClockSpeed{get;}
-    public int Tdp { get;}
-    public bool IntegratedGraphics{get;}
-    public int L3CacheSize { get; }
-    public string ProcessNode { get; }
-    public string PcieVersion { get; }
-    public string MemoryType { get; }
-    public int MaxMemorySpeed { get; }
-    public bool Overclockable { get; }
+    public Guid SocketId{get; set; }
+    public int? PerformanceCores { get; set; }
+    public int? EfficiencyCores { get; set;}
+    public string Generation{get; set; }
+    public int Threads{get; set; }
+    public double BaseClockSpeed{get; set; }
+    public double? BoostClockSpeed{get; set; }
+    public int Tdp { get; set; }
+    public bool IntegratedGraphics{get; set; }
+    public int L3CacheSize { get; set; }
+    public string ProcessNode { get; set; }
+    public string PcieVersion { get; set; }
+    public string MemoryType { get; set; }
+    public int MaxMemorySpeed { get; set; }
+    public bool Overclockable { get; set; }
     
     private Cpu(Guid id,string name, string manufacturer, string model,
         string description, string photoUrl, Guid socketId, string generation,
