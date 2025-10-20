@@ -80,7 +80,6 @@ public class CpuRepository: ICpuRepository
         cpuEntity.Manufacturer = cpu.Manufacturer;
         cpuEntity.Model = cpu.Model;
         cpuEntity.Description = cpu.Description;
-        cpuEntity.PhotoUrl = cpu.PhotoUrl;
         cpuEntity.SocketId = cpu.SocketId;
         cpuEntity.PerformanceCores = cpu.PerformanceCores;
         cpuEntity.EfficiencyCores = cpu.EfficiencyCores;
