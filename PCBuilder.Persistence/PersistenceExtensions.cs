@@ -24,6 +24,7 @@ public static class PersistenceExtensions
         services.AddScoped<ITokenRepository, TokenRepository>();
         services.AddScoped<IEmailRepositories, EmailRepositories>();
         services.AddScoped<ICpuRepository, CpuRepository>();
+        services.AddScoped<ISocketRepository, SocketRepository>();
        
         services.AddAwsS3(configuration);
         
